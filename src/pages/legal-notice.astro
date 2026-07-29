@@ -1,0 +1,45 @@
+---
+import Layout from "@layouts/default.astro";
+import "@styles/long-text-content.css";
+import Headline from "@components/headline.astro";
+import { useTranslations } from "@utils/i18n";
+import { themeConfig } from '~/theme.config';
+
+const locale = themeConfig.i18n.defaultLocale;
+const t = useTranslations(locale);
+---
+
+<Layout title={t('pages.legal-notice.title')} description={t('pages.legal-notice.description')} robots="noindex, follow" header={{ showTopBanner: false }} showFooterBanner={false}>
+  <Headline text={t('pages.legal-notice.title')} class="pb-10" />
+
+  <div class="long-text-content max-w-4xl text-left text-stone-200">
+    <p class="text-stone-300 italic mb-6">{t('pages.legal-notice.intro')}:</p>
+    
+    <div class="space-y-4 rounded-xl border border-stone-800 bg-stone-900/80 p-6">
+      <div>
+        <strong class="text-white text-lg">Botaz AI Avtomatlaşdırma Platforması</strong>
+      </div>
+      <div>
+        <span class="text-stone-400 block text-xs uppercase tracking-wider">Veb-sayt:</span>
+        <a href="https://botaz.online" target="_blank" rel="noopener" class="text-primary hover:underline font-medium">https://botaz.online</a>
+      </div>
+      <div>
+        <span class="text-stone-400 block text-xs uppercase tracking-wider">Rəsmi E-poçt:</span>
+        <a href="mailto:info@botaz.online" class="text-stone-200 hover:text-white font-medium">info@botaz.online</a>
+      </div>
+      <div>
+        <span class="text-stone-400 block text-xs uppercase tracking-wider">Dəstək və Satış Line:</span>
+        <span class="text-stone-200 font-medium">WhatsApp Canlı Dəstək (+994 50 000 00 00)</span>
+      </div>
+      <div>
+        <span class="text-stone-400 block text-xs uppercase tracking-wider">Xidmət Sahəsi:</span>
+        <span class="text-stone-200 font-medium">Instagram & WhatsApp Avtomatik Satış və Süni İntellekt Bot Xidmətləri</span>
+      </div>
+    </div>
+
+    <h2 class="mt-8 text-xl font-bold text-white">Məsuliyyətdən İmtina (Disclaimer)</h2>
+    <p class="text-stone-300 leading-relaxed">
+      Botaz AI tərəfindən təqdim edilən AI satış köməkçisi bizneslərin daxili məhsul bazası və təlimatları əsasında cavablar yaradır. Veb-saytda göstərilən bütün tarif və kampaniyalar rəsmi şərtlərə tabedir.
+    </p>
+  </div>
+</Layout>

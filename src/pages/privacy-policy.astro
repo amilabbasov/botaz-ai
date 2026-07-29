@@ -1,0 +1,61 @@
+---
+import Layout from "@layouts/default.astro";
+import "@styles/long-text-content.css";
+import Headline from "@components/headline.astro";
+import { useTranslations } from "@utils/i18n";
+import { themeConfig } from '~/theme.config';
+
+const locale = themeConfig.i18n.defaultLocale;
+const t = useTranslations(locale);
+---
+
+<Layout title={t('pages.privacy-policy.title')} description={t('pages.privacy-policy.description')} robots="noindex, follow" header={{ showTopBanner: false }}>
+  <Headline text={t('pages.privacy-policy.title')} class="pb-10" />
+
+  <div class="long-text-content max-w-4xl text-left wrap-break-word text-stone-200">
+    <p class="text-lg leading-relaxed text-stone-300">
+      <strong>Botaz AI</strong> ("Biz", "Xidmət") istifadəçilərimizin və onların müştərilərinin fərdi məlumatlarının məxfilik və təhlükəsizliyinə böyük məsuliyyətlə yanaşır. Bu Məxfilik Siyasəti platformamızdan (Instagram və WhatsApp satış avtomatlaşdırma AI köməkçisi) istifadə zamanı toplanan, emal edilən və qorunan məlumatların qaydalarını izah edir.
+    </p>
+
+    <h2 class="mt-8 text-xl font-bold text-white">1. Toplanan Məlumatlar</h2>
+    <p>Botaz AI xidmətinin göstərilməsi üçün aşağıdakı kateqoriyalı məlumatlar emal edilə bilər:</p>
+    <ul class="list-disc pl-6 space-y-2 text-stone-300">
+      <li><strong>Əlaqə Məlumatları:</strong> Ad, soyad, telefon nömrəsi, e-poçt ünvanı və biznes rekvizitləri.</li>
+      <li><strong>Mesajlaşma və Qarşılıqlı Əlaqə Jurnalları:</strong> Instagram DM və WhatsApp üzərindən daxil olan mətni mesajlar, səsli mesajlar (Voice AI) və göndərilən şəkillər/məhsul fotoları (Vision AI).</li>
+      <li><strong>Biznes Konfiqurasiyası:</strong> Google Sheets məhsul kataloqları, qiymət cədvəlləri, xüsusi cavablandırma ssenariləri və seçilmiş brend personası.</li>
+      <li><strong>Texniki Məlumatlar:</strong> IP ünvanları, cihaz növü, daxilolma vaxtı və tətbiq jurnalları.</li>
+    </ul>
+
+    <h2 class="mt-8 text-xl font-bold text-white">2. Məlumatların İstifadə Məqsədləri</h2>
+    <p>Toplanan məlumatlar strictly aşağıdakı məqsədlər üçün istifadə olunur:</p>
+    <ul class="list-disc pl-6 space-y-2 text-stone-300">
+      <li>Instagram və WhatsApp üzərindən 24/7 avtomatik satış və cavablandırma xidmətinin təmin edilməsi.</li>
+      <li>Səsli mesajların mətnə çevrilməsi və süni intellekt vasitəsilə cavablandırılması (Voice AI).</li>
+      <li>Müştərilərin göndərdiyi məhsul şəkillərinin analiz edilərək stok və qiymət məlumatının təqdim olunması (Vision AI).</li>
+      <li>Sifariş və lead məlumatlarının anında biznes sahibinin Telegram və ya e-poçt ünvanına yönləndirilməsi.</li>
+      <li>Xidmətin dəqiqliyinin və təhlükəsizliyinin artırılması.</li>
+    </ul>
+
+    <h2 class="mt-8 text-xl font-bold text-white">3. Məlumatların Qorunması və Məxfilik</h2>
+    <p>
+      Biz sizin və müştərilərinizin məlumatlarını heç bir halda üçüncü tərəflərə satmırıq və ya kommersiya məqsədilə ötürmürük. Bütün məlumatlar müasir şifrələmə standartları (SSL/TLS) vasitəsilə qorunan serverlərdə saxlanılır.
+    </p>
+
+    <h2 class="mt-8 text-xl font-bold text-white">4. Üçüncü Tərəf İnteqrasiyaları</h2>
+    <p>
+      Botaz AI tərəfindən istifadə olunan rəsmi inteqrasiyalar (Meta Graph API, WhatsApp Business API, Google Sheets API, Telegram Bot API) yalnız xidmətin işləməsi üçün zəruri olan həddə istifadə edilir.
+    </p>
+
+    <h2 class="mt-8 text-xl font-bold text-white">5. İstifadəçi Hüquqları və Məlumatların Silinməsi</h2>
+    <p>
+      İstifadəçilər istənilən vaxt öz hesabı üzrə toplanmış məlumatların tam silinməsini və ya düzəliş edilməsini tələb edə bilərlər. Bunun üçün rəsmi əlaqə kanallarımız (WhatsApp və ya <a href="mailto:info@botaz.online" class="text-primary hover:underline">info@botaz.online</a>) vasitəsilə bizə müraciət edə bilərsiniz.
+    </p>
+
+    <h2 class="mt-8 text-xl font-bold text-white">6. Əlaqə</h2>
+    <p>
+      Məxfilik siyasətimiz haqqında suallarınız yarandıqda bizimlə əlaqə saxlayın:<br />
+      <strong>E-poçt:</strong> info@botaz.online<br />
+      <strong>Veb-sayt:</strong> https://botaz.online
+    </p>
+  </div>
+</Layout>

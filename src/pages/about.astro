@@ -1,0 +1,74 @@
+---
+import Layout from "@layouts/default.astro";
+import Headline from "@components/headline.astro";
+import AboutContent from "@components/about/about-content.astro";
+import { useTranslations } from "@utils/i18n";
+import { themeConfig } from '~/theme.config';
+
+const locale = themeConfig.i18n.defaultLocale;
+const t = useTranslations(locale);
+
+const content = {
+  imageAlt: "Botaz AI komandası və texnologiyası",
+  lead: "Botaz AI - Instagram və WhatsApp mağazalarının satışlarını 24/7 avtopilota keçirən, Azərbaycan dilində daxil olan səsli mesajları və şəkilləri tam anlayan ilk AI satış köməkçisidir.",
+  stats: [
+    { icon: "heroicons:sparkles", value: "Voice AI", label: "Səsli mesajları anlama" },
+    { icon: "heroicons:photo", value: "Vision AI", label: "Şəkilləri analiz etmə" },
+    { icon: "heroicons:clock", value: "24/7", label: "Kəsilməzsiz satış" },
+    { icon: "heroicons:chat-bubble-bottom-center-text", value: "Azərbaycan dili", label: "Canlı satış personası" },
+  ],
+  storyHeading: "Missiyamız",
+  timeline: [
+    {
+      year: "Problemin Mənbəyi",
+      title: "Gecikən cavablar = İtirilmiş satışlar",
+      text: "Azərbaycanda minlərlə Instagram mağazası gecə saatlarında və ya pik vaxtlarda daxil olan mesajlara vaxtında cavab verə bilmədiyi üçün potensial müştəriləri rəqiblərə itirirdi.",
+    },
+    {
+      year: "İnnovativ Həll",
+      title: "Voice & Vision AI Satış Köməkçisi",
+      text: "Sıradan mətni botlardan fərqli olaraq, müştərinin göndərdiyi səsli mesajları dinləyən, geyim/məhsul şəkillərini analiz edən və Google Sheets-dən qiymətləri oxuyan Botaz AI sistemini təqdim etdik.",
+    },
+    {
+      year: "Brend Personası",
+      title: "Canlı insan kimi ünsiyyət",
+      text: "Botaz AI sadəcə cavab vermir; biznesinizin üslubuna uyğunlaşır - İstər rəsmi, istərsə də səmimi dildə danışaraq müştərilərdə canlı satıcı təəssüratı yaradır.",
+    },
+    {
+      year: "Bu Gün",
+      title: "Avtomatik Satış və Lead Qəbulu",
+      text: "Razılaşmış müştərinin telefon və ünvanını toplayaraq anında Telegram və Email-inizə göndərir, operatorların üzərindəki yükü 80% azaldır.",
+    },
+  ],
+  highlightsHeading: "Niyə Botaz AI?",
+  highlights: [
+    {
+      icon: "heroicons:bolt",
+      title: "Anında Cavablandırma",
+      text: "Gecə saatlarında belə daxil olan sorğuları saniyələr ərzində cavablandırır.",
+    },
+    {
+      icon: "heroicons:adjustments-horizontal",
+      title: "Google Cədvəllər İnteqrasiyası",
+      text: "Məhsul bazanızı birbaşa cədvəldən oxuyur, qiymətləri avtomatik yeniləyir.",
+    },
+    {
+      icon: "heroicons:paper-airplane",
+      title: "Telegram & Email Xəbərdarlığı",
+      text: "Satış yekunlaşan kimi müştəri məlumatları birbaşa telefonunuza gəlir.",
+    },
+    {
+      icon: "heroicons:check-badge",
+      title: "5 Dəqiqəyə Quraşdırma",
+      text: "Mürəkkəb kodlaşdırma tələb olunmur, dərhal işə başlayır.",
+    },
+  ],
+  openSourceHeading: "Biznesinizi Birlikdə Böyüdək",
+  openSourceText: "Botaz AI sizə satışları artırmaq və müştəri məmnuniyyətini maksimuma çatdırmaq üçün ən qabaqcıl süni intellekt imkanlarını təqdim edir. WhatsApp vasitəsilə bizimlə əlaqə saxlayın və canlı demanı dərhal sınaqdan keçirin.",
+};
+---
+
+<Layout title={t('pages.about.title')} description={t('pages.about.description')}>
+  <Headline text={t('pages.about.title')} class="pb-10" />
+  <AboutContent {...content} {locale} />
+</Layout>

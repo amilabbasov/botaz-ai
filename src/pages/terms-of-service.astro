@@ -1,0 +1,54 @@
+---
+import Layout from "@layouts/default.astro";
+import "@styles/long-text-content.css";
+import Headline from "@components/headline.astro";
+import { useTranslations } from "@utils/i18n";
+import { themeConfig } from '~/theme.config';
+
+const locale = themeConfig.i18n.defaultLocale;
+const t = useTranslations(locale);
+---
+
+<Layout title={t('pages.terms-of-service.title')} description={t('pages.terms-of-service.description')} robots="noindex, follow" header={{ showTopBanner: false }}>
+  <Headline text={t('pages.terms-of-service.title')} class="pb-10" />
+
+  <div class="long-text-content max-w-4xl text-left wrap-break-word text-stone-200">
+    <p class="text-lg leading-relaxed text-stone-300">
+      Bu İstifadə Şərtləri ("Qaydalar") <strong>Botaz AI</strong> platformasının (https://botaz.online) təqdim etdiyi Instagram və WhatsApp satış avtomatlaşdırılması SaaS xidmətlərindən istifadə qaydalarını tənzimləyir. Xidmətlərimizdən istifadə edərək bu şərtləri qəbul etmiş olursunuz.
+    </p>
+
+    <h2 class="mt-8 text-xl font-bold text-white">1. Xidmətin Təsviri</h2>
+    <p>
+      Botaz AI bizneslərə Instagram DM və WhatsApp kanalları üzərindən daxil olan müraciətləri süni intellekt (Voice AI, Vision AI, xüsusi brend personası, Google Sheets cədvəl inteqrasiyası) vasitəsilə 24/7 avtomatik cavablandırmaq və satışları idarə etmək imkanı verən proqram təminatıdır.
+    </p>
+
+    <h2 class="mt-8 text-xl font-bold text-white">2. İstifadəçi Öhdəlikləri və Qaydalar</h2>
+    <ul class="list-disc pl-6 space-y-2 text-stone-300">
+      <li>İstifadəçi hesab yaratarkən və bota məhsul cədvəlini təqdim edərkən dəqiq və qanuni məlumatlar təqdim etməlidir.</li>
+      <li>Botaz AI xidməti spam göndərişləri, qanunsuz məhsulların satışı və ya aldadıcı fəaliyyətlər üçün istifadə edilə bilməz.</li>
+      <li>Biznes bota daxil etdiyi qiymət və stok məlumatlarının doğruluğuna görə məsuliyyət daşıyır.</li>
+    </ul>
+
+    <h2 class="mt-8 text-xl font-bold text-white">3. Tariflər, Ödənişlər və İlkin Kampaniya</h2>
+    <p>
+      Botaz AI tarif planları (Lite, Business, Pro, Enterprise) aylıq və ya illik abunəlik modeli ilə təqdim olunur. İlkin qeydiyyat zamanı ilk ay üçün 50% endirim kampaniyası tətbiq edilə bilər. Abunəlik müddəti bitdikdə xidmətin fəaliyyəti dayandırıla bilər.
+    </p>
+
+    <h2 class="mt-8 text-xl font-bold text-white">4. İntellektual Mülkiyyət</h2>
+    <p>
+      Botaz AI brendi, proqram kodu, alqoritmləri və dizayn elementi platformaya məxsusdur. İstifadəçinin bota təqdim etdiyi məhsul şəkilləri və ticarət məlumatları istifadəçinin mülkiyyətində qalır.
+    </p>
+
+    <h2 class="mt-8 text-xl font-bold text-white">5. Məsuliyyətin Məhdudlaşdırılması</h2>
+    <p>
+      Botaz AI platformanın fasiləsiz işləməsini təmin etmək üçün bütün texniki tədbirləri görür. Lakin Meta (Instagram/WhatsApp) platformalarının qlobal texniki kəsintiləri və ya üçüncü tərəf API problemləri nəticəsində yaranan gecikmələrə görə dolayı məsuliyyət daşımır.
+    </p>
+
+    <h2 class="mt-8 text-xl font-bold text-white">6. Əlaqə və Dəstək</h2>
+    <p>
+      İstifadə şərtləri haqqında suallarınız olduqda bizimlə WhatsApp və ya rəsmi e-poçt ünvanımız vasitəsilə əlaqə saxlayın:<br />
+      <strong>E-poçt:</strong> info@botaz.online<br />
+      <strong>Veb-sayt:</strong> https://botaz.online
+    </p>
+  </div>
+</Layout>

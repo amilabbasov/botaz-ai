@@ -1,0 +1,110 @@
+---
+import { Icon } from "astro-icon/components";
+import { getLocaleUrl } from "@utils/i18n";
+import MainNav from "@components/layout/nav/main-nav.astro";
+import { themeConfig } from '~/theme.config';
+import { Image } from "astro:assets";
+
+import logoDark from '@images/logo.webp';
+import logoWhite from '@images/logo-white.webp';
+
+interface Props {
+  locale: string;
+  button?: {
+    text: string;
+    href: string;
+  };
+  tabIndex?: number;
+  shrink?: boolean;
+  isHome?: boolean;
+  ctaButton?: {
+    text: string;
+    href: string;
+  };
+  logoTheme?: 'light' | 'dark';
+}
+
+const { locale, button, tabIndex = 0, shrink = true, isHome, ctaButton, logoTheme } = Astro.props as Props;
+---
+
+<div data-shrink={`${shrink}`} class:list={['mx-6 flex h-20 items-center justify-between gap-10 lg:container lg:mx-auto', shrink && 'header-content-inner transition-[height] duration-300']}>
+  {
+    button ? (
+      <a href={button.href} class="btn-subtle rounded px-3 text-sm" tabindex={tabIndex}>
+        <Icon name="heroicons:arrow-left" class="h-4 w-4" />
+        {button.text}
+      </a>
+    ) : isHome ? (
+      <span aria-hidden="true" class="block w-fit select-none">
+        {/* Açıq Rejim Logosu */}
+        <Image 
+          src={logoDark} 
+          alt={themeConfig.name || "Logo"}
+          height={54}
+          class:list={['h-15 w-auto max-h-15 max-w-full object-contain select-none', logoTheme === 'dark' ? 'hidden' : logoTheme === 'light' ? 'block' : 'block dark:hidden']} 
+        />
+        {/* Tünd Rejim Logosu */}
+        <Image 
+          src={logoWhite} 
+          alt={themeConfig.name || "Logo"}
+          height={54}
+          class:list={['h-15 w-auto max-h-15 max-w-full object-contain select-none', logoTheme === 'dark' ? 'block' : logoTheme === 'light' ? 'hidden' : 'hidden dark:block']} 
+        />
+      </span>
+    ) : (
+      <a href={getLocaleUrl('/', locale)} class="block w-fit select-none" tabindex={tabIndex}>
+        <p class="sr-only hidden" id="siteNameLogo">
+          {themeConfig.name}
+        </p>
+        {/* Açıq Rejim Logosu */}
+        <Image 
+          src={logoDark} 
+          alt={themeConfig.name || "Logo"}
+          height={54}
+          class:list={['h-15 w-auto max-h-15 max-w-full object-contain', logoTheme === 'dark' ? 'hidden' : logoTheme === 'light' ? 'block' : 'block dark:hidden']} 
+        />
+        {/* Tünd Rejim Logosu */}
+        <Image 
+          src={logoWhite} 
+          alt={themeConfig.name || "Logo"}
+          height={54}
+          class:list={['h-15 w-auto max-h-15 max-w-full object-contain', logoTheme === 'dark' ? 'block' : logoTheme === 'light' ? 'hidden' : 'hidden dark:block']} 
+        />
+      </a>
+    )
+  }
+  <div class="flex flex-row-reverse items-center gap-8 lg:flex-row">
+    <MainNav {locale} {tabIndex} />
+    <div class="flex items-center gap-5">
+      {
+        ctaButton && (
+          <a href={ctaButton.href} class="btn-primary hidden text-sm sm:block" tabindex={tabIndex}>
+            {ctaButton.text}
+          </a>
+        )
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  function updateHeaderShrink() {
+    const scrolled = window.scrollY > 60;
+    document.querySelectorAll<HTMLElement>('.header-content-inner').forEach((el) => {
+      el.classList.toggle('h-20', !scrolled);
+      el.classList.toggle('h-16', scrolled);
+    });
+  }
+
+  function setupHeaderShrink() {
+    window.removeEventListener('scroll', updateHeaderShrink);
+    window.addEventListener('scroll', updateHeaderShrink, { passive: true });
+    updateHeaderShrink();
+  }
+
+  const isShrink = document.querySelector<HTMLElement>('.header-content-inner')?.dataset.shrink === 'true';
+  if (isShrink) {
+    setupHeaderShrink();
+    document.addEventListener('astro:page-load', setupHeaderShrink);
+  }
+</script>

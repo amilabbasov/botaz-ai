@@ -1,0 +1,81 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface BotazFeature {
+  title: string;
+  tagline: string;
+  detail: string;
+  icon: string;
+  accent: 'primary' | 'secondary';
+}
+
+const botazFeatures: BotazFeature[] = [
+  {
+    title: "Səsli Mesajları Anlama (Voice AI)",
+    tagline: "Instagram və WhatsApp daxilində səsli mesajların mənasını anında başa düşür.",
+    detail: "Müştərilərin göndərdiyi istənilən səsli mesajı yüksək dəqiqliklə Dinləyir, mənasını və sifariş müraciətini təhlil edir, sonra isə rəvan mətni və ya səsli cavab təqdim edir.",
+    icon: "heroicons:sparkles",
+    accent: "primary"
+  },
+  {
+    title: "Vizual Şəkil Analizi (Vision AI)",
+    tagline: "Şəkilləri, geyim fotolarını və skrinşotları tam oxuyur.",
+    detail: "Müştəri bota bəyəndiyi məhsulun şəklini və ya ölçü cədvəlini atdıqda, Vision AI modeli şəkildəki geyimi və ya əşyanı tanıyır, bazadan stok və qiyməti tapır.",
+    icon: "heroicons:photo",
+    accent: "primary"
+  },
+  {
+    title: "Xüsusi Satış Personaları",
+    tagline: "Brendinizin ruhuna və dialektinə uyğun canlı insan üslubu.",
+    detail: "Bota istədiyiniz xarakteri verə bilərsiniz — Naxçıvanlı Əmi, Ağdamlı Dayı, Gen-Z və ya Rəsmi Satış Mütəxəssisi. Müştəri robotla yox, canlı insanla danışdığını hiss edir.",
+    icon: "heroicons:chat-bubble-bottom-center-text",
+    accent: "secondary"
+  },
+  {
+    title: "24/7 Avtomatik Satış və Lead Qəbulu",
+    tagline: "Gecə saatlarında belə sifarişləri və müştəri nömrələrini toplayır.",
+    detail: "Müştəri ilə razılaşan AI bota onun adını, telefon nömrəsini və çatdırılma ünvanını dəqiqləşdirir və anında təsdiqlənmiş sifariş yaratmaq üçün satıcıya ötürür.",
+    icon: "heroicons:clock",
+    accent: "primary"
+  },
+  {
+    title: "Google Cədvəllər İnteqrasiyası",
+    tagline: "Məhsul və qiymət bazası birbaşa Google Sheets-dən oxunur.",
+    detail: "Hər dəfə qiyməti dəyişmək üçün kod yazmağa ehtiyac yoxdur. Google Cədvəlinizdə qiyməti yeniləyən kimi Botaz AI anında yeni qiymətlərlə cavab verməyə başlayır.",
+    icon: "heroicons:table-cells",
+    accent: "secondary"
+  },
+  {
+    title: "Telegram və Email İntellektual Bildirişlər",
+    tagline: "Sifariş yekunlaşan kimi anında cibinizə xəbərdarlıq gəlir.",
+    detail: "Müştəri sifarişi təsdiqləyən kimi bütün detallar (müştərinin adı, nömrəsi, istədiyi məhsul və ünvan) Telegram qrupunuza və e-poçtunuza düşür.",
+    icon: "heroicons:paper-airplane",
+    accent: "secondary"
+  }
+];
+---
+
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  {
+    botazFeatures.map((feature) => (
+      <article class="feature-card group relative h-full flex flex-col justify-between overflow-hidden rounded-xl border border-stone-800 bg-stone-900/90 p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-primary/10">
+        <div class={`absolute inset-x-0 top-0 h-1 ${feature.accent === 'primary' ? 'bg-primary' : 'bg-stone-500'}`} />
+        <div>
+          <span class={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg ${feature.accent === 'primary' ? 'bg-primary/20 text-primary' : 'bg-stone-800 text-stone-300'}`}>
+            <Icon name={feature.icon} class="h-6 w-6" aria-hidden="true" />
+          </span>
+          <h3 class="mb-2 text-xl font-bold text-white">{feature.title}</h3>
+          <p class="mb-3 text-sm font-medium text-stone-300">{feature.tagline}</p>
+          <p class="text-xs leading-relaxed text-stone-400">{feature.detail}</p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-stone-800/80 flex items-center justify-between">
+          <span class="text-xs text-primary font-semibold">Botaz AI Xüsusiyyəti</span>
+          <a href="https://wa.me/994500000000" target="_blank" rel="noopener" class="text-xs text-stone-300 group-hover:text-primary transition-colors flex items-center gap-1">
+            <span>Yoxla</span>
+            <Icon name="heroicons:arrow-right" class="h-3 w-3" />
+          </a>
+        </div>
+      </article>
+    ))
+  }
+</div>
