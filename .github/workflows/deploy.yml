@@ -1,0 +1,56 @@
+name: Deploy Botaz Web Production
+
+on:
+  push:
+    branches:
+      - main  # Və ya hansı əsas branch-də işləyirsənsə (master ola bilər)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.15.0'
+
+      - name: Docker Login
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Build Docker Image
+        run: docker build -t amilabbasov/botaz-web-prod:latest .
+
+      - name: Push Docker Image
+        run: docker push amilabbasov/botaz-web-prod:latest
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Copy compose file to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          source: docker-compose.prod.yml
+          target: /opt/botaz
+
+      - name: Deploy to Production Server via SSH
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd /opt/botaz
+            echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+            docker compose -p botaz-web-prod -f docker-compose.prod.yml down
+            docker compose -p botaz-web-prod -f docker-compose.prod.yml pull
+            docker compose -p botaz-web-prod -f docker-compose.prod.yml up -d
