@@ -10,9 +10,8 @@ RUN npm run build
 
 # Nginx mərhələsi
 FROM nginx:alpine
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/dist/ /usr/share/nginx/html/
 
-# Öz Nginx konfiqurasiyamızı əlavə edirik
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
