@@ -1,9 +1,7 @@
-version: '3.8'
-
 services:
   botaz-web-prod:
     container_name: botaz-web-prod
-    image: ${DOCKER_USERNAME}/botaz-web-prod:latest
+    image: amilabbasov/botaz-web-prod:latest
     ports:
       - "3007:80"
     restart: unless-stopped
