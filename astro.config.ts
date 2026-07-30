@@ -182,7 +182,7 @@ export default defineConfig({
   ],
 
   adapter: cloudflare({
-    imageService: 'cloudflare', // mind to activate Media > Images > Transformations in the Cloudflare dashboard for your Zone/Worker!
+    imageService: 'compile', // mind to activate Media > Images > Transformations in the Cloudflare dashboard for your Zone/Worker!
     prerenderEnvironment: 'node', // only applies to prerendering at build time. On-demand SSR always uses the Cloudflare workerd runtime. Node is currently required here because some render-time dependencies call Node-only path/url APIs that are not available in workerd's isolated runtime.
   }),
 });
