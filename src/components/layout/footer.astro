@@ -7,6 +7,7 @@ import logoWhite from '@images/logo-white.webp';
 import FooterNav from "@components/layout/nav/footer-nav.astro";
 import LegalNav from "@components/layout/nav/legal.astro";
 import NewsletterSignup from "@components/promo/newsletter-signup.astro";
+import { SITE_CONFIG } from "../../site.config";
 
 interface Props {
   locale: string;
@@ -16,8 +17,6 @@ interface Props {
 
 const { locale, isHome } = Astro.props as Props;
 const t = useTranslations(locale);
-
-const promptLocaleAdd = locale !== 'en' ? ` - Translate your answer into "${locale}" language` : '';
 ---
 
 <footer role="contentinfo" class="from-stone-950 bg-linear-to-t to-stone-900 pt-14 text-white">
@@ -32,39 +31,33 @@ const promptLocaleAdd = locale !== 'en' ? ` - Translate your answer into "${loca
         <div class="text-sm font-semibold">{t('meta.slogan')}</div>
         <div class="text-xs text-stone-400">{t('meta.sub-slogan')}</div>
       </div>
-      {
-        themeConfig.xHandle && (
-          <div class="flex items-center justify-center space-x-6 lg:justify-start lg:space-x-3">
-            <a class="btn-subtle rounded-full p-1" title="Follow us on X" target="_blank" rel="noopener" href={'https://x.com/' + themeConfig.xHandle}>
-              <Icon name="fa7-brands:x-twitter" class="h-5 w-5" />
-            </a>
-          </div>
-        )
-      }
-      {
-        themeConfig.askAiTrigger && (
-          <div class="mt-8 md:mt-4">
-            <div class="text-stone-400 mb-2 text-xs">{t('labels.ask-ai')}:</div>
-            <div class="flex items-center justify-center space-x-4 lg:justify-start">
-              <a class="btn-subtle rounded-full p-1.5" title="ChatGPT" target="_blank" rel="noopener" href={`https://chatgpt.com/?prompt=${encodeURIComponent(themeConfig.askAiTrigger + promptLocaleAdd)}`}>
-                <Icon name="simple-icons:openai" class="h-5 w-5 text-stone-300 hover:text-white" />
-              </a>
-              <a class="btn-subtle rounded-full p-1.5" title="Claude" target="_blank" rel="noopener" href={`https://claude.ai/new?q=${encodeURIComponent(themeConfig.askAiTrigger + promptLocaleAdd)}`}>
-                <Icon name="simple-icons:claude" class="h-5 w-5 text-stone-300 hover:text-white" />
-              </a>
-              <a class="btn-subtle rounded-full p-1.5" title="Perplexity" target="_blank" rel="noopener" href={`https://www.perplexity.ai/search?q=${encodeURIComponent(themeConfig.askAiTrigger + promptLocaleAdd)}`}>
-                <Icon name="simple-icons:perplexity" class="h-5 w-5 text-stone-300 hover:text-white" />
-              </a>
-            </div>
-          </div>
-        )
-      }
+
+      <!-- Sosial Media Düymələri -->
+      <div class="mt-8 md:mt-4">
+        <div class="text-stone-400 mb-2.5 text-xs font-medium">Bizə qoşulun:</div>
+        <div class="flex items-center justify-center space-x-3 lg:justify-start">
+          <!-- Instagram -->
+          <a class="btn-subtle rounded-full p-2.5 bg-stone-900 border border-stone-800 hover:bg-stone-800 transition-colors" title="Instagram" target="_blank" rel="noopener" href="https://instagram.com/botaz.ai">
+            <Icon name="simple-icons:instagram" class="h-4 w-4 text-stone-300 hover:text-white" />
+          </a>
+          <!-- Facebook -->
+          <a class="btn-subtle rounded-full p-2.5 bg-stone-900 border border-stone-800 hover:bg-stone-800 transition-colors" title="Facebook" target="_blank" rel="noopener" href="https://www.facebook.com/profile.php?id=61591120635315">
+            <Icon name="simple-icons:facebook" class="h-4 w-4 text-stone-300 hover:text-white" />
+          </a>
+          <!-- WhatsApp -->
+          <a class="btn-subtle rounded-full p-2.5 bg-stone-900 border border-stone-800 hover:bg-stone-800 transition-colors" title="WhatsApp" target="_blank" rel="noopener" href={SITE_CONFIG.whatsappUrl}>
+            <Icon name="simple-icons:whatsapp" class="h-4 w-4 text-stone-300 hover:text-white" />
+          </a>
+        </div>
+      </div>
     </div>
+    
     <div class="flex w-full flex-col md:w-fit">
       <FooterNav {locale} {isHome} />
       {(themeConfig.promotions?.newsletterSignup === true || themeConfig.promotions?.newsletterSignup === 'footer') && <NewsletterSignup {locale} inFooter={true} />}
     </div>
   </div>
+  
   <div class="container mt-10 flex flex-col flex-wrap items-center justify-between gap-x-14 gap-y-6 border-t border-white/10 py-6 pt-7 sm:flex-row-reverse">
     <LegalNav {locale} />
   </div>

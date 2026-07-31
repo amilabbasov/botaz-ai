@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-// Workaround for https://github.com/withastro/astro/issues/15917
 //
 // The Astro Cloudflare adapter generates `dist/server/wrangler.json` and
 // redirects `wrangler deploy` to it via `.wrangler/deploy/config.json`.

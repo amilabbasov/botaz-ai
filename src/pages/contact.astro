@@ -1,10 +1,10 @@
 ---
-import Layout from "@layouts/default.astro";
-import Headline from "@components/headline.astro";
-import ContactForm from "@components/contact/contact-form.astro";
+import Layout from "../layouts/default.astro";
+import Headline from "../components/headline.astro";
 import { Icon } from "astro-icon/components";
-import { useTranslations } from "@utils/i18n";
-import { themeConfig } from '~/theme.config';
+import { useTranslations } from "../utils/i18n";
+import { themeConfig } from "../../theme.config";
+import { SITE_CONFIG } from "../site.config";
 
 const locale = themeConfig.i18n.defaultLocale;
 const t = useTranslations(locale);
@@ -13,46 +13,34 @@ const t = useTranslations(locale);
 <Layout title={t('pages.contact.title')} description={t('pages.contact.description')}>
   <Headline text={t('pages.contact.title')} class="pb-10" />
 
-  <p class="mb-10 max-w-2xl text-lg text-stone-300">{t('pages.contact.intro-text')}</p>
+  <p class="mx-auto mb-10 max-w-2xl text-center text-lg text-stone-300">{t('pages.contact.intro-text')}</p>
 
-  <div class="flex flex-col justify-between gap-12 lg:flex-row lg:gap-16">
-    <!-- Contact form -->
-    <div class="flex max-w-xl flex-col gap-12 lg:flex-1">
-      <ContactForm {locale} />
+  <section class="mx-auto max-w-2xl rounded-2xl border border-stone-800 bg-stone-950/70 px-6 py-10 text-center shadow-lg shadow-black/10 sm:px-10">
+    <div class="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-primary/15 text-primary">
+      <Icon name="heroicons:chat-bubble-left-right" class="h-7 w-7" aria-hidden="true" />
     </div>
 
-    <!-- Direct WhatsApp & Info Card -->
-    <aside class="flex flex-col gap-6 rounded-xl border border-stone-800 bg-stone-900/80 p-8 lg:w-96 lg:shrink-0">
-      <div class="flex flex-col gap-3">
-        <h3 class="text-xl font-bold text-white flex items-center gap-2">
-          <Icon name="heroicons:chat-bubble-left-right" class="h-6 w-6 text-primary" />
-          Canlı WhatsApp Dəstək
-        </h3>
-        <p class="text-stone-300 text-sm leading-relaxed">
-          Form doldurmadan anında canlı demo sınaqdan keçirmək və suallarınızı vermək üçün WhatsApp nömrəmizə yazın.
-        </p>
-        <a href="https://wa.me/994500000000" target="_blank" rel="noopener" class="btn-primary mt-2 flex items-center justify-center gap-2 font-bold py-3 text-center">
-          <Icon name="heroicons:chat-bubble-left-ellipsis" class="h-5 w-5" />
-          <span>WhatsApp-da Yazın</span>
-        </a>
-      </div>
+    <h3 class="text-2xl font-bold text-white sm:text-3xl">Birbaşa WhatsApp ilə yazın</h3>
+    <p class="mx-auto mt-3 max-w-xl text-sm leading-7 text-stone-300 sm:text-base">
+      Form doldurmadan, daha sürətli cavab almaq üçün bizə WhatsApp-da mesaj göndərin. Qısa sualınız, demo istəyiniz və ya əməkdaşlıq mövzusu olsun, birbaşa cavab verək.
+    </p>
 
-      <hr class="border-stone-800 my-2" />
+    <a
+      href={SITE_CONFIG.whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-primary mx-auto mt-8 w-fit justify-center rounded-full px-6 py-3 text-base font-bold"
+      aria-label="WhatsApp-da yaz"
+    >
+      <Icon name="simple-icons:whatsapp" class="h-5 w-5" aria-hidden="true" />
+      <span>WhatsApp-da Yaz</span>
+      <Icon name="heroicons:arrow-top-right-on-square" class="h-4 w-4" aria-hidden="true" />
+    </a>
 
-      <div class="flex flex-col gap-4 text-stone-300 text-sm">
-        <div>
-          <span class="text-stone-500 block text-xs uppercase tracking-wider font-semibold">Rəsmi E-poçt:</span>
-          <a href="mailto:info@botaz.online" class="text-white hover:text-primary transition-colors font-medium">info@botaz.online</a>
-        </div>
-        <div>
-          <span class="text-stone-500 block text-xs uppercase tracking-wider font-semibold">İş Saatları:</span>
-          <span class="text-white font-medium">Bazar ertəsi - Şənbə: 09:00 - 20:00 (AI bota 24/7 aktivdir)</span>
-        </div>
-        <div>
-          <span class="text-stone-500 block text-xs uppercase tracking-wider font-semibold">Ünvan:</span>
-          <span class="text-white font-medium">Bakı, Azərbaycan</span>
-        </div>
-      </div>
-    </aside>
-  </div>
+    <div class="mt-8 flex flex-col items-center gap-2 text-sm text-stone-400 sm:flex-row sm:justify-center sm:gap-4">
+      <a href="mailto:aa.devs45@gmail.com" class="text-stone-200 transition-colors hover:text-primary">aa.devs45@gmail.com</a>
+      <span class="hidden text-stone-600 sm:inline">•</span>
+      <span>Bakı, Azərbaycan</span>
+    </div>
+  </section>
 </Layout>

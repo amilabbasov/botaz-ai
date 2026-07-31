@@ -113,7 +113,7 @@ export const themeConfig: ThemeConfig = {
   // LLM and coding assistant settings
   llms: {
     autoGeneration: true,
-    intro: 'Botaz AI - Instagram və WhatsApp satışlarını avtopilota keçirən, səsli mesajları və şəkilləri anlayan Azərbaycan dilində ilk AI satış köməkçisidir.',
+    intro: 'Botaz AI - Instagram satışlarını avtopilota keçirən, səsli mesajları və şəkilləri anlayan Azərbaycan dilində ilk AI satış köməkçisidir.',
     excludePagesPattern: ['/integration/**'],
     includePages: [],
     addArticles: 'selected',

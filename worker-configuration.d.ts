@@ -5151,7 +5151,6 @@ type ChatCompletionsOutput = {
 };
 /**
  * Workers AI support for OpenAI's Responses API
- * Reference: https://github.com/openai/openai-node/blob/master/src/resources/responses/responses.ts
  *
  * It's a stripped down version from its source.
  * It currently supports basic function calling, json mode and accepts images as input.

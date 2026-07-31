@@ -3,7 +3,8 @@ import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import GroupShot from "@images/group-shot.png";
 import Reveal from "@components/reveal.astro";
-import { useTranslations, getLocaleUrl } from "@utils/i18n";
+import { useTranslations } from "@utils/i18n";
+import { SITE_CONFIG } from "../../site.config";
 
 interface Stat {
   icon: string;
@@ -24,25 +25,15 @@ interface Highlight {
 }
 
 interface Props {
-  /** Photo alt text. */
   imageAlt: string;
-  /** Lead paragraph shown next to the photo. */
   lead: string;
-  /** Small key-fact cards. */
   stats: Stat[];
-  /** Heading above the story timeline. */
   storyHeading: string;
-  /** The journey, as dated milestones. */
   timeline: TimelineItem[];
-  /** Heading above the highlight cards. */
   highlightsHeading: string;
-  /** What makes the boilerplate special (features, SEO, …). */
   highlights: Highlight[];
-  /** Open-source section heading. */
   openSourceHeading: string;
-  /** Open-source section body. */
   openSourceText: string;
-  /** Locale for translations. */
   locale: string;
 }
 
@@ -60,8 +51,6 @@ const {
 } = Astro.props;
 
 const t = useTranslations(locale);
-
-const githubUrl = "https://github.com/peltmonger/stardrive";
 ---
 
 <div class="flex flex-col gap-20">
@@ -132,22 +121,22 @@ const githubUrl = "https://github.com/peltmonger/stardrive";
     </section>
   </Reveal>
 
-  <!-- Open source -->
+  <!-- WhatsApp CTA section -->
   <Reveal>
     <section class="border-secondary/30 bg-secondary-light/5 dark:border-secondary-light/40 dark:bg-secondary-dark/20 rounded-2xl border p-6 sm:p-10">
       <div class="flex flex-col items-start gap-4">
         <span class="bg-secondary text-secondary-contrast flex h-12 w-12 items-center justify-center rounded-full">
-          <Icon name="heroicons:heart" class="h-6 w-6" aria-hidden="true" />
+          <Icon name="heroicons:chat-bubble-left-right" class="h-6 w-6" aria-hidden="true" />
         </span>
         <h2 class="text-2xl font-bold">{openSourceHeading}</h2>
         <p class="max-w-2xl text-stone-700 dark:text-stone-200">{openSourceText}</p>
         <div class="mt-2 flex flex-wrap gap-3">
-          <a href={githubUrl} target="_blank" rel="noopener" class="btn-primary">
-            <Icon name="heroicons:star" class="h-5 w-5" aria-hidden="true" />
-            GitHub
+          <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-primary">
+            <Icon name="simple-icons:whatsapp" class="h-5 w-5" aria-hidden="true" />
+            WhatsApp-da Yaz
             <Icon name="heroicons:arrow-top-right-on-square" class="h-4 w-4" aria-hidden="true" />
           </a>
-          <a href={getLocaleUrl('docs', locale)} class="btn-subtle group rounded px-3">
+          <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-subtle group rounded px-3">
             {t('labels.get-started')}
             <Icon name="heroicons:arrow-right" class="mr-1 ml-0 h-4 w-4 transition-all duration-200 group-hover:mr-0 group-hover:ml-1" aria-hidden="true" />
           </a>

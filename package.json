@@ -1,9 +1,9 @@
 {
-  "name": "stardrive",
+  "name": "botaz-ai",
   "version": "1.4.3",
   "stardriveVersion": "1.4.3",
   "private": true,
-  "description": "The Astro boilerplate to create super stable and fast websites in the AI age",
+  "description": "Botaz AI - Instagram Satışlarını Avtomatlaşdır",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -27,37 +27,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/peltmonger/stardrive.git"
+    "url": "git+https://github.com/amilabbasov/botaz-ai"
   },
   "keywords": [
-    "astro",
-    "boilerplate",
-    "starter",
-    "template",
-    "website",
-    "static",
-    "fast",
-    "stable",
-    "llm",
-    "ai"
+    "botaz",
+    "botaz-ai",
+    "instagram-bot",
+    "whatsapp-bot",
+    "ai-sales",
+    "azerbaijan-ai"
   ],
   "author": {
-    "name": "Peltmonger Ventures GmbH",
-    "url": "https://peltmonger.com/"
+    "name": "Botaz AI"
   },
-  "maintainers": [
-    {
-      "name": "Jens Kuerschner",
-      "url": "https://jekuer.com/"
-    }
-  ],
   "license": "MIT",
-  "funding": "https://github.com/peltmonger/stardrive?sponsor=1",
   "type": "module",
-  "bugs": {
-    "url": "https://github.com/peltmonger/stardrive/issues"
-  },
-  "homepage": "https://astro-stardrive.com/",
+  "homepage": "https://botaz.online/",
   "dependencies": {
     "@astrojs/cloudflare": "^14.1.6",
     "@astrojs/rss": "^4.0.19",

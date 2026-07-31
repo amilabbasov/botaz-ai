@@ -20,6 +20,7 @@ import { useTranslations, getLocaleUrl } from "@utils/i18n";
 import { themeConfig } from '~/theme.config';
 import { getEntry } from 'astro:content';
 import type { CollectionEntry } from "astro:content";
+import { SITE_CONFIG } from "../site.config";
 
 interface Props {
   title?: string;
@@ -82,7 +83,7 @@ const showTopBanner = (themeConfig.promotions?.topBanner && header?.showTopBanne
   <body>
     {showTopBanner ? <TopBanner {locale} /> : null}
     <div class="relative w-full">
-      {header?.hidden !== true && <Header {locale} button={headerButton} github="https://github.com/peltmonger/stardrive" ctaButton={{ text: t('labels.signup'), href: getLocaleUrl('signup', locale) }} fixed={header?.fixed} overlay={header?.overlay} scrollDownThreshold={header?.scrollDownThreshold} closeIcon={header?.closeIcon} hasTopBanner={showTopBanner} />}
+      {header?.hidden !== true && <Header {locale} button={headerButton} github={SITE_CONFIG.whatsappUrl} ctaButton={{ text: t('labels.signup'), href: SITE_CONFIG.whatsappUrl }} fixed={header?.fixed} overlay={header?.overlay} scrollDownThreshold={header?.scrollDownThreshold} closeIcon={header?.closeIcon} hasTopBanner={showTopBanner} />}
       <main role="main">
         <div class="container mx-auto pt-8 pb-10 md:pt-10 md:pb-14 lg:pt-12 lg:pb-16">
           <slot />

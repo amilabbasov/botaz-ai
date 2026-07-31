@@ -73,7 +73,7 @@
     "description": "Səsli mesajları anlayan, şəkilləri analiz edən və brendinizin xarakteri ilə danışan ilk Azərbaycan dilində AI satış köməkçisi.",
     "og-site-name": "Botaz AI",
     "slug": "Botaz AI - Satış Köməkçisi",
-    "slogan": "Instagram və WhatsApp Satış Avtomatlaşdırılması",
+    "slogan": "Instagram Satışlarını Avtomatlaşdır",
     "sub-slogan": "24/7 kəsilməzsiz müştəri xidməti və avtomatik satışlar."
   },
   "i18n": {
@@ -104,7 +104,7 @@
       "hero-chip": "İlkin Kampaniya: 50% Endirim",
       "pages.home.hero-title-line1": "Cavabsız Müştəri",
       "pages.home.hero-title-line2": "İtirilmiş Gəlir",
-      "hero-sub-slogan": "Botaz AI bütün mesajları saniyələr içində cavablandırır. Siz isə satışa fokuslanırsınız.",
+      "hero-sub-slogan": "Müştərilərinə 24/7 cavab verir, real alıcıları müəyyən edir və onları birbaşa sənə yönləndirir. Sən isə vaxtını yalnız satışa sərf edirsən.",
       "references": "Güclü Texnoloji İnteqrasiya"
     },
     "features": {
@@ -124,7 +124,7 @@
       "intro-text": "Botaz AI-ı biznesinizə inteqrasiya etmək üçün bizimlə əlaqə saxlayın.",
       "docs-heading": "Gözləmək istəmirsiniz?",
       "docs-text": "Birbaşa WhatsApp-da canlı demo tələb edin.",
-      "docs-cta": "WhatsApp-da Yazın",
+      "docs-cta": "WhatsApp-da Yaz",
       "address-heading": "Ünvanımız",
       "name": "Ad",
       "name-placeholder": "Adınız",
@@ -135,7 +135,7 @@
     },
     "pricing": {
       "title": "Tariflər və Qiymətlər",
-      "description": "Biznesiniz üçün ən uyğun planı seçin. İlk ay 50% endirimlə!"
+      "description": "Botaz AI Instagram satışları üçün süni intellekt satış köməkçisidir. Planları, illik qənaəti və launch təklifini görün."
     },
     "legal-notice": {
       "title": "Hüquqi Bildiriş",
@@ -197,8 +197,8 @@
     "parallax-heading": "Instagram Bütün Gün İşləsin",
     "cta-heading": "Sınaqdan Keçirməyə Hazırsınız?",
     "cta-sub": "Bizim WhatsApp nömrəmizə yazın və canlı demanı dərhal sınaqdan keçirin.",
-    "cta-primary": "WhatsApp-da Yazın",
-    "cta-secondary": "Qiymətlərlə Tanış Olun"
+    "cta-primary": "WhatsApp-da Yaz",
+    "cta-secondary": "Qiymətlərlə Tanış Ol"
   },
   "pricing-content": {
     "demo-note": "İLK AY 50% ENDİRİM KAMPANİYASI!",
@@ -236,6 +236,6 @@
     "cta-choose": "Paketi Seç",
     "cta-start-free": "Sınaqdan Keçir",
     "cta-contact": "Satışla Əlaqə",
-    "disclaimer": "Qiymətlər AZN ilə göstərilmişdir. İlk ay bütün planlarda 50% endirim tətbiq olunur."
+    "disclaimer": "Qiymətlər AZN ilə göstərilmişdir. Aylıq AI cavab limiti plan üzrə tətbiq olunur; limit bitdikdə əlavə paket almaq lazımdır."
   }
 }

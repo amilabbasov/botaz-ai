@@ -55,6 +55,7 @@ const useCases: UseCase[] = [
 
 const docsUrl = getLocaleUrl("docs", locale);
 const featuresUrl = getLocaleUrl("features", locale);
+const pricingUrl = getLocaleUrl("pricing", locale);
 ---
 
 <section class="home-content flex flex-col overflow-x-clip">
@@ -187,7 +188,7 @@ const featuresUrl = getLocaleUrl("features", locale);
             {t('home-content.cta-primary')}
             <Icon name="heroicons:arrow-right" class="mr-1 ml-0 h-4 w-4 transition-all duration-200 group-hover:mr-0 group-hover:ml-1" aria-hidden="true" />
           </a>
-          <a href={featuresUrl} class="btn-subtle group rounded px-4 py-[0.43rem]">
+          <a href={pricingUrl} class="btn-subtle group rounded px-4 py-[0.43rem]">
             <span>{t('home-content.cta-secondary')}</span>
             <Icon name="heroicons:arrow-right" class="mr-1 ml-0 h-4 w-4 transition-all duration-200 group-hover:mr-0 group-hover:ml-1" aria-hidden="true" />
           </a>

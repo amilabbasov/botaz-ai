@@ -2,53 +2,376 @@
 import Layout from "@layouts/default.astro";
 import "@styles/long-text-content.css";
 import Headline from "@components/headline.astro";
-import { useTranslations } from "@utils/i18n";
-import { themeConfig } from '~/theme.config';
-
-const locale = themeConfig.i18n.defaultLocale;
-const t = useTranslations(locale);
+import { Icon } from "astro-icon/components";
 ---
 
-<Layout title={t('pages.terms-of-service.title')} description={t('pages.terms-of-service.description')} robots="noindex, follow" header={{ showTopBanner: false }}>
-  <Headline text={t('pages.terms-of-service.title')} class="pb-10" />
+<Layout title="Terms of Service - Botaz AI" description="Botaz AI terms of service, user obligations, and conditions." robots="noindex, follow" header={{ showTopBanner: false }}>
+  <!-- Yuxarı hissə: Başlıq və Dil Seçici düyməsi -->
+  <div class="flex flex-col gap-4 pb-10 sm:flex-row sm:items-center sm:justify-between">
+    <div id="page-headline">
+      <Headline text="Terms of Service" class="pb-0" />
+    </div>
 
-  <div class="long-text-content max-w-4xl text-left wrap-break-word text-stone-200">
-    <p class="text-lg leading-relaxed text-stone-300">
-      Bu İstifadə Şərtləri ("Qaydalar") <strong>Botaz AI</strong> platformasının (https://botaz.online) təqdim etdiyi Instagram və WhatsApp satış avtomatlaşdırılması SaaS xidmətlərindən istifadə qaydalarını tənzimləyir. Xidmətlərimizdən istifadə edərək bu şərtləri qəbul etmiş olursunuz.
+    <!-- Dil Dəyişdirmə Düyməsi -->
+    <div class="flex items-center self-start sm:self-auto">
+      <div class="inline-flex rounded-full border border-stone-800 bg-stone-900 p-1" role="group" aria-label="Dil seçimi">
+        <button type="button" class="lang-btn rounded-full px-4 py-1.5 text-xs font-semibold text-stone-400 transition-colors" data-lang="az"> AZ </button>
+        <button type="button" class="lang-btn rounded-full px-4 py-1.5 text-xs font-semibold text-stone-400 transition-colors" data-lang="en"> EN </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="long-text-content max-w-4xl text-left wrap-break-word text-stone-200" id="content-container">
+    <p class="mb-6 text-sm text-stone-400" data-i18n="dates">
+      <strong>Effective Date:</strong> July 31, 2026<br />
+      <strong>Last Updated:</strong> July 31, 2026
     </p>
 
-    <h2 class="mt-8 text-xl font-bold text-white">1. Xidmətin Təsviri</h2>
-    <p>
-      Botaz AI bizneslərə Instagram DM və WhatsApp kanalları üzərindən daxil olan müraciətləri süni intellekt (Voice AI, Vision AI, xüsusi brend personası, Google Sheets cədvəl inteqrasiyası) vasitəsilə 24/7 avtomatik cavablandırmaq və satışları idarə etmək imkanı verən proqram təminatıdır.
-    </p>
+    <!-- English Content (Default) -->
+    <div class="lang-content" data-lang="en">
+      <p class="text-lg leading-relaxed text-stone-300">
+        Welcome to <strong>Botaz</strong> ("Botaz", "we", "our", or "us"). These Terms of Service ("Terms") govern your access to and use of the Botaz website, platform, software, and related services (collectively, the "Service").
+      </p>
+      <p class="mt-4 text-stone-300">By accessing or using Botaz, you agree to be bound by these Terms. If you do not agree, you must not use the Service.</p>
 
-    <h2 class="mt-8 text-xl font-bold text-white">2. İstifadəçi Öhdəlikləri və Qaydalar</h2>
-    <ul class="list-disc pl-6 space-y-2 text-stone-300">
-      <li>İstifadəçi hesab yaratarkən və bota məhsul cədvəlini təqdim edərkən dəqiq və qanuni məlumatlar təqdim etməlidir.</li>
-      <li>Botaz AI xidməti spam göndərişləri, qanunsuz məhsulların satışı və ya aldadıcı fəaliyyətlər üçün istifadə edilə bilməz.</li>
-      <li>Biznes bota daxil etdiyi qiymət və stok məlumatlarının doğruluğuna görə məsuliyyət daşıyır.</li>
-    </ul>
+      <h2 class="mt-8 text-xl font-bold text-white">1. About Botaz</h2>
+      <p class="text-stone-300">Botaz is an AI-powered customer communication platform that helps businesses automate Instagram conversations, qualify potential customers, collect sales leads, and improve customer engagement. The Service uses artificial intelligence to generate responses based on information provided by the business.</p>
+      <p class="mt-2 text-stone-300">Botaz is currently operated by an independent software developer based in Baku, Azerbaijan.</p>
 
-    <h2 class="mt-8 text-xl font-bold text-white">3. Tariflər, Ödənişlər və İlkin Kampaniya</h2>
-    <p>
-      Botaz AI tarif planları (Lite, Business, Pro, Enterprise) aylıq və ya illik abunəlik modeli ilə təqdim olunur. İlkin qeydiyyat zamanı ilk ay üçün 50% endirim kampaniyası tətbiq edilə bilər. Abunəlik müddəti bitdikdə xidmətin fəaliyyəti dayandırıla bilər.
-    </p>
+      <h2 class="mt-8 text-xl font-bold text-white">2. Eligibility</h2>
+      <p class="text-stone-300">You must be at least 13 years old to use the Service. If you are using Botaz on behalf of a business or organization, you represent that you have the authority to bind that business to these Terms.</p>
 
-    <h2 class="mt-8 text-xl font-bold text-white">4. İntellektual Mülkiyyət</h2>
-    <p>
-      Botaz AI brendi, proqram kodu, alqoritmləri və dizayn elementi platformaya məxsusdur. İstifadəçinin bota təqdim etdiyi məhsul şəkilləri və ticarət məlumatları istifadəçinin mülkiyyətində qalır.
-    </p>
+      <h2 class="mt-8 text-xl font-bold text-white">3. Your Account</h2>
+      <p class="text-stone-300">You are responsible for:</p>
+      <ul class="list-disc space-y-2 pl-6 text-stone-300">
+        <li>Maintaining accurate business information;</li>
+        <li>Protecting access to connected accounts;</li>
+        <li>Ensuring that your Meta and Instagram credentials remain valid;</li>
+        <li>Keeping your contact information up to date.</li>
+      </ul>
+      <p class="mt-2 text-stone-300">You are responsible for all activity occurring through your connected account.</p>
 
-    <h2 class="mt-8 text-xl font-bold text-white">5. Məsuliyyətin Məhdudlaşdırılması</h2>
-    <p>
-      Botaz AI platformanın fasiləsiz işləməsini təmin etmək üçün bütün texniki tədbirləri görür. Lakin Meta (Instagram/WhatsApp) platformalarının qlobal texniki kəsintiləri və ya üçüncü tərəf API problemləri nəticəsində yaranan gecikmələrə görə dolayı məsuliyyət daşımır.
-    </p>
+      <h2 class="mt-8 text-xl font-bold text-white">4. Connecting Your Instagram Account</h2>
+      <p class="text-stone-300">Certain features require connecting an Instagram Business account through Meta's platform. By connecting your account, you authorize Botaz to:</p>
+      <ul class="list-disc space-y-2 pl-6 text-stone-300">
+        <li>Access your connected Instagram Business account;</li>
+        <li>Read direct messages;</li>
+        <li>Send automated direct message replies;</li>
+        <li>Access information required for providing the Service;</li>
+        <li>Maintain conversation context necessary for AI responses.</li>
+      </ul>
+      <p class="mt-2 text-stone-300">Botaz does not publish posts, create stories, or reply to comments unless such functionality is explicitly introduced in the future.</p>
 
-    <h2 class="mt-8 text-xl font-bold text-white">6. Əlaqə və Dəstək</h2>
-    <p>
-      İstifadə şərtləri haqqında suallarınız olduqda bizimlə WhatsApp və ya rəsmi e-poçt ünvanımız vasitəsilə əlaqə saxlayın:<br />
-      <strong>E-poçt:</strong> info@botaz.online<br />
-      <strong>Veb-sayt:</strong> https://botaz.online
-    </p>
+      <h2 class="mt-8 text-xl font-bold text-white">5. AI-Generated Responses</h2>
+      <p class="text-stone-300">Botaz uses third-party artificial intelligence providers, including OpenAI. AI-generated responses are automatically produced based on information supplied by the business. Artificial intelligence may occasionally generate:</p>
+      <ul class="list-disc space-y-2 pl-6 text-stone-300">
+        <li>Inaccurate information;</li>
+        <li>Incomplete information;</li>
+        <li>Misleading information;</li>
+        <li>Outdated information.</li>
+      </ul>
+      <p class="mt-2 text-stone-300">Business owners remain solely responsible for reviewing important business information, pricing, policies, promotions, and customer communications. Botaz does not guarantee the accuracy of AI-generated content.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">6. Customer Leads</h2>
+      <p class="text-stone-300">
+        Botaz may request information such as a customer's name or phone number when it determines that the customer has demonstrated genuine purchasing intent. Collected lead information is delivered to the business owner through configured notification channels, including email or Telegram. Botaz acts solely as a technology provider and does not participate in sales transactions between
+        businesses and their customers.
+      </p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">7. Business Information</h2>
+      <p class="text-stone-300">You are solely responsible for the information you provide to Botaz, including:</p>
+      <ul class="list-disc space-y-2 pl-6 text-stone-300">
+        <li>Product descriptions;</li>
+        <li>Pricing;</li>
+        <li>Promotions;</li>
+        <li>Delivery information;</li>
+        <li>Business hours;</li>
+        <li>FAQs;</li>
+        <li>Policies;</li>
+        <li>Greeting messages;</li>
+        <li>AI instructions.</li>
+      </ul>
+      <p class="mt-2 text-stone-300">You represent that all information you provide is accurate and lawful.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">8. Acceptable Use</h2>
+      <p class="text-stone-300">You agree to use Botaz only for lawful purposes. You may not use the Service to:</p>
+      <ul class="list-disc space-y-2 pl-6 text-stone-300">
+        <li>Send spam;</li>
+        <li>Conduct phishing attacks;</li>
+        <li>Operate scams or fraudulent schemes;</li>
+        <li>Distribute malware;</li>
+        <li>Promote illegal products or services;</li>
+        <li>Infringe intellectual property rights;</li>
+        <li>Generate hateful, abusive, or discriminatory content;</li>
+        <li>Violate applicable laws or regulations;</li>
+        <li>Interfere with the operation of the Service.</li>
+      </ul>
+
+      <h2 class="mt-8 text-xl font-bold text-white">9. Abuse and Suspension</h2>
+      <p class="text-stone-300">We reserve the right to suspend or terminate access to the Service at any time if we reasonably believe that these Terms have been violated, the Service is being abused, illegal activities are taking place, or our systems, users, or third parties may be harmed. Suspension may occur without prior notice where reasonably necessary.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">10. Intellectual Property</h2>
+      <p class="text-stone-300">Botaz and all associated software, source code, prompts, branding, logos, designs, interfaces, documentation, and other materials are owned by Botaz or its licensors. These Terms do not grant you ownership of any intellectual property belonging to Botaz.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">11. Restrictions</h2>
+      <p class="text-stone-300">You may not:</p>
+      <ul class="list-disc space-y-2 pl-6 text-stone-300">
+        <li>Copy the platform;</li>
+        <li>Reverse engineer the software;</li>
+        <li>Attempt to discover source code;</li>
+        <li>Resell the Service without authorization;</li>
+        <li>Scrape or extract platform data;</li>
+        <li>Create competing services based on Botaz;</li>
+        <li>Remove copyright or proprietary notices.</li>
+      </ul>
+
+      <h2 class="mt-8 text-xl font-bold text-white">12. Subscription Plans</h2>
+      <p class="text-stone-300">Certain features may require a paid subscription. Available features, usage limits, and reporting capabilities depend on the selected subscription plan. We may modify subscription plans or introduce new plans in the future.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">13. Payments</h2>
+      <p class="text-stone-300">Payments are currently processed manually using mutually agreed payment methods. Botaz does not store or process payment card information. Except where required by applicable law, all payments are non-refundable.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">14. Service Availability</h2>
+      <p class="text-stone-300">We aim to provide a reliable service but do not guarantee uninterrupted or error-free availability. The Service may occasionally become unavailable due to scheduled maintenance, technical failures, internet disruptions, third-party service outages, security incidents, or events beyond our reasonable control.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">15. Third-Party Services</h2>
+      <p class="text-stone-300">Botaz relies on external service providers, including Meta, OpenAI, and Supabase. Changes, interruptions, restrictions, or failures affecting third-party services may impact Botaz's functionality. Botaz is not responsible for the availability or performance of third-party platforms.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">16. Data Ownership</h2>
+      <p class="text-stone-300">Business information uploaded to Botaz remains the property of the respective business. Customer conversations and lead information belong to the business that collected them. Botaz processes such information solely for providing the requested services.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">17. No Guarantee of Results</h2>
+      <p class="text-stone-300">While Botaz is designed to improve customer communication and operational efficiency, we do not guarantee increased sales, increased revenue, customer satisfaction, business growth, conversion rates, or response quality in every situation. Business success depends on numerous factors beyond the Service.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">18. Disclaimer of Warranties</h2>
+      <p class="text-stone-300">The Service is provided "AS IS" and "AS AVAILABLE". To the maximum extent permitted by law, Botaz disclaims all warranties, whether express or implied, including warranties of merchantability, fitness for a particular purpose, non-infringement, and uninterrupted availability.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">19. Limitation of Liability</h2>
+      <p class="text-stone-300">
+        To the maximum extent permitted by law, Botaz shall not be liable for any indirect, incidental, consequential, special, exemplary, or punitive damages arising out of or relating to the use of the Service, including loss of profits, loss of customers, business interruption, loss of goodwill, data loss, reputational harm, or reliance on AI-generated responses. Your use of the Service is at
+        your own risk.
+      </p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">20. Indemnification</h2>
+      <p class="text-stone-300">You agree to defend, indemnify, and hold harmless Botaz from and against any claims, liabilities, damages, losses, expenses, and reasonable legal fees arising from your use of the Service, your violation of these Terms, content you provide, violation of applicable laws, or infringement of third-party rights.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">21. Force Majeure</h2>
+      <p class="text-stone-300">Botaz shall not be responsible for delays or failures caused by circumstances beyond our reasonable control, including natural disasters, internet failures, governmental actions, cyberattacks, cloud infrastructure outages, or failures affecting Meta, OpenAI, Supabase, or other service providers.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">22. Privacy</h2>
+      <p class="text-stone-300">Your use of Botaz is also governed by our Privacy Policy. By using the Service, you acknowledge that you have read and understood the Privacy Policy.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">23. Future Features & Changes</h2>
+      <p class="text-stone-300">Botaz may introduce additional features, integrations, communication channels, or beta functionality in the future, which may be subject to additional terms. We reserve the right to modify, suspend, discontinue, or improve any part of the Service at any time without prior notice.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">24. Changes to these Terms</h2>
+      <p class="text-stone-300">We may update these Terms periodically. The updated version will become effective upon publication unless otherwise stated. Continued use of the Service after changes become effective constitutes acceptance of the revised Terms.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">25. Governing Law & Contact</h2>
+      <p class="text-stone-300">
+        These Terms shall be governed by and interpreted in accordance with the laws of the Republic of Azerbaijan, without regard to conflict of law principles. If you have questions regarding these Terms, you may contact us at:<br />
+        <strong>Email:</strong>
+        <a href="mailto:aa.dev45@gmail.com" class="text-primary hover:underline">aa.dev45@gmail.com</a><br />
+        <strong>Thank you for choosing Botaz.</strong>
+      </p>
+    </div>
+
+    <!-- Azerbaijani Content -->
+    <div class="lang-content hidden" data-lang="az">
+      <p class="text-lg leading-relaxed text-stone-300">
+        <strong>Botaz</strong>-a xoş gəlmisiniz ("Botaz", "biz", "bizim"). Bu İstifadə Şərtləri ("Şərtlər") Botaz veb-saytına, platformasına, proqram təminatına və əlaqədar xidmətlərə (ümumi olaraq "Xidmət") girişinizi və istifadənizi tənzimləyir.
+      </p>
+      <p class="mt-4 text-stone-300">Botaz-a daxil olmaqla və ya istifadə etməklə bu Şərtlərlə bağlı olmağa razılaşırsınız. Razı deyilsinizsə, Xidmətdən istifadə etməməlisiniz.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">1. Botaz Haqqında</h2>
+      <p class="text-stone-300">Botaz bizneslərə Instagram danışıqlarını avtomatlaşdırmağa, potensial müştəriləri qiymətləndirməyə, satış ledləri toplamağa və müştəri əlaqələrini yaxşılaşdırmağa kömək edən süni intellekt əsaslı müştəri ünsiyyət platformasıdır. Xidmət biznes tərəfindən təqdim olunan məlumatlar əsasında cavablar yaratmaq üçün süni intellektdən istifadə edir.</p>
+      <p class="mt-2 text-stone-300">Botaz hal-hazırda Bakı, Azərbaycan şəhərində fəaliyyət göstərən müstəqil proqram mühəndisi tərəfindən idarə olunur.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">2. Uyğunluq</h2>
+      <p class="text-stone-300">Xidmətdən istifadə etmək üçün azı 13 yaşında olmalısınız. Əgər Botaz-dan hər hansı bir biznes və ya təşkilat adından istifadə edirsinizsə, həmin biznesi bu Şərtlərlə bağlamaq səlahiyyətiniz olduğunu bəyan edirsiniz.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">3. Hesabınız</h2>
+      <p class="text-stone-300">Aşağıdakılara görə məsuliyyət daşıyırsınız:</p>
+      <ul class="list-disc space-y-2 pl-6 text-stone-300">
+        <li>Dəqiq biznes məlumatlarının saxlanılması;</li>
+        <li>Birləşdirilmiş hesablara girişin qorunması;</li>
+        <li>Meta və Instagram məlumatlarınızın etibarlılığının təmin edilməsi;</li>
+        <li>Əlaqə məlumatlarınızın güncəl saxlanılması.</li>
+      </ul>
+      <p class="mt-2 text-stone-300">Birləşdirilmiş hesabınız vasitəsilə baş verən bütün fəaliyyətlərə görə məsuliyyət daşıyırsınız.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">4. Instagram Hesabının Bağlanması</h2>
+      <p class="text-stone-300">Bəzi xüsusiyyətlər Meta platforması vasitəsilə Instagram Business hesabının bağlanmasını tələb edir. Hesabınızı bağlamaqla Botaz-a aşağıdakı səlahiyyətləri verirsiniz:</p>
+      <ul class="list-disc space-y-2 pl-6 text-stone-300">
+        <li>Bağlı Instagram Business hesabınıza daxil olmaq;</li>
+        <li>Birbaşa mesajları oxumaq;</li>
+        <li>Avtomatlaşdırılmış birbaşa mesaj cavabları göndərmək;</li>
+        <li>Xidmətin göstərilməsi üçün tələb olunan məlumatlara giriş etmək;</li>
+        <li>Süni intellekt cavabları üçün zəruri olan danışıq kontekstini qorumaq.</li>
+      </ul>
+      <p class="mt-2 text-stone-300">Botaz gələcəkdə açıq şəkildə təqdim olunmayana qədər postlar dərc etmir, hekayələr yaratmır və şərhlərə cavab vermir.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">5. Süni İntellekt Tərəfindən Yaradılan Cavablar</h2>
+      <p class="text-stone-300">Botaz, OpenAI daxil olmaqla, üçüncü tərəf süni intellekt provayderlərindən istifadə edir. Süni intellekt tərəfindən yaradılan cavablar biznes tərəfindən təqdim olunan məlumatlar əsasında avtomatik olaraq istehsal olunur. Süni intellekt bəzən aşağıdakıları yarada bilər:</p>
+      <ul class="list-disc space-y-2 pl-6 text-stone-300">
+        <li>Qeyri-dəqiq məlumatlar;</li>
+        <li>Natamam məlumatlar;</li>
+        <li>Yanıltıcı məlumatlar;</li>
+        <li>Köhnəlmiş məlumatlar.</li>
+      </ul>
+      <p class="mt-2 text-stone-300">Biznes sahibləri mühüm biznes məlumatlarını, qiymətləri, siyasətləri, promosyonları və müştəri ünsiyyətini nəzərdən keçirmək üçün yalnız özləri məsuliyyət daşıyırlar. Botaz süni intellekt tərəfindən yaradılan məzmunun dəqiqliyinə zəmanət vermir.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">6. Müştəri Ledləri</h2>
+      <p class="text-stone-300">
+        Botaz müştərinin real alış niyyəti nümayiş etdirdiyini müəyyən etdikdə müştərinin adı və ya telefon nömrəsi kimi məlumatları tələb edə bilər. Toplanmış led məlumatları e-poçt və ya Telegram daxil olmaqla, konfiqurasiya edilmiş bildiriş kanalları vasitəsilə biznes sahibinə çatdırılır. Botaz yalnız texnologiya provayderi qismində çıxış edir və bizneslər ilə onların müştəriləri arasındakı
+        satış əməliyyatlarında iştirak etmir.
+      </p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">7. Biznes Məlumatları</h2>
+      <p class="text-stone-300">Aşağıdakılar daxil olmaqla, Botaz-a təqdim etdiyiniz məlumatlara görə yalnız siz məsuliyyət daşıyırsınız:</p>
+      <ul class="list-disc space-y-2 pl-6 text-stone-300">
+        <li>Məhsul təsvirləri;</li>
+        <li>Qiymətlər;</li>
+        <li>Promosyonlar;</li>
+        <li>Çatdırılma məlumatları;</li>
+        <li>İş saatları;</li>
+        <li>Tez-tez verilən suallar (FAQ);</li>
+        <li>Siyasətlər;</li>
+        <li>Salamlama mesajları;</li>
+        <li>Süni intellekt təlimatları.</li>
+      </ul>
+      <p class="mt-2 text-stone-300">Təqdim etdiyiniz bütün məlumatların dəqiq və qanuni olduğunu bəyan edirsiniz.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">8. Məqbul İstifadə</h2>
+      <p class="text-stone-300">Botaz-dan yalnız qanuni məqsədlər üçün istifadə etməyə razılaşırsınız. Xidmətdən aşağıdakı məqsədlər üçün istifadə edə bilməzsiniz:</p>
+      <ul class="list-disc space-y-2 pl-6 text-stone-300">
+        <li>Spam göndərmək;</li>
+        <li>Fishing (fişinq) hücumları həyata keçirmək;</li>
+        <li>Fırıldaqçılıq və ya dələduzluq sxemləri idarə etmək;</li>
+        <li>Zərərli proqramlar yaymaq;</li>
+        <li>Qeyri-qanuni məhsul və ya xidmətləri təbliğ etmək;</li>
+        <li>Əqli mülkiyyət hüquqlarını pozmaq;</li>
+        <li>Nifrət dolu, təhqiramiz və ya ayrı-seçkilik yaradan məzmun yaratmaq;</li>
+        <li>Tətbiq olunan qanun və ya qaydaları pozmaq;</li>
+        <li>Xidmətin işinə mane olmaq.</li>
+      </ul>
+
+      <h2 class="mt-8 text-xl font-bold text-white">9. Sui-istifadə və Dayandırılma</h2>
+      <p class="text-stone-300">Bu Şərtlərin pozulduğuna, Xidmətin sui-istifadə olunduğuna, qeyri-qanuni fəaliyyətlərin baş verdiyinə və ya sistemlərimizin, istifadəçilərimizin və ya üçüncü tərəflərin zərər görə biləcəyinə əsaslı şəkildə inandığımız təqdirdə, istənilən vaxt Xidmətə girişinizi dayandırmaq və ya ləğv etmək hüququnu özümüzdə saxlayırıq.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">10. Əqli Mülkiyyət</h2>
+      <p class="text-stone-300">Botaz və bütün əlaqəli proqram təminatı, mənbə kodu, promptlar, brendinq, loqolar, dizaynlar, interfeyslər, sənədlər və digər materiallar Botaz və ya onun lisenziyavericilərinə məxsusdur.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">11. Məhdudiyyətlər</h2>
+      <p class="text-stone-300">Aşağıdakıları edə bilməzsiniz:</p>
+      <ul class="list-disc space-y-2 pl-6 text-stone-300">
+        <li>Platformanı kopyalamaq;</li>
+        <li>Proqram təminatını tərsinə mühəndislik (reverse engineer) etmək;</li>
+        <li>Mənbə kodunu aşkar etməyə çalışmaq;</li>
+        <li>Xidməti icazəsiz yenidən satmaq;</li>
+        <li>Platforma məlumatlarını skreyp etmək və ya çıxarmaq;</li>
+        <li>Botaz əsasında rəqib xidmətlər yaratmaq.</li>
+      </ul>
+
+      <h2 class="mt-8 text-xl font-bold text-white">12. Abunə Planları</h2>
+      <p class="text-stone-300">Bəzi xüsusiyyətlər ödənişli abunəlik tələb edə bilər. Mövcud xüsusiyyətlər, istifadə limitləri və hesabat imkanları seçilmiş abunə planından asılıdır.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">13. Ödənişlər</h2>
+      <p class="text-stone-300">Ödənişlər hal-hazırda qarşılıqlı razılaşdırılmış ödəniş üsulları ilə əl ilə həyata keçirilir. Botaz ödəniş kartı məlumatlarını saxlamır və ya emal etmir. Tətbiq olunan qanunvericilikdə nəzərdə tutulmuş hallar istisna olmaqla, bütün ödənişlər geri qaytarılmır.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">14. Xidmətin Əlçatanlığı</h2>
+      <p class="text-stone-300">Etibarlı xidmət təqdim etməyi hədəfləyirik, lakin fasiləsiz və ya xətasız əlçatanlığa zəmanət vermirik. Planlaşdırılmış texniki qulluq, texniki nasazlıqlar və ya internet kəsintiləri səbəbindən Xidmət müvəqqəti əlçatmaz ola bilər.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">15. Üçüncü Tərəf Xidmətləri</h2>
+      <p class="text-stone-300">Botaz Meta, OpenAI və Supabase daxil olmaqla xarici xidmət təminatçılarına güvənir. Üçüncü tərəf xidmətlərinə təsir edən dəyişikliklər və ya fasilələr Botaz-ın işinə təsir göstərə bilər.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">16. Məlumat Mülkiyyəti</h2>
+      <p class="text-stone-300">Botaz-a yüklənmiş biznes məlumatları müvafiq biznesin mülkiyyətində qalır. Müştəri danışıqları və led məlumatları onları toplamaqla məşğul olan biznesə məxsusdur.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">17. Nəticələrə Zəmanət Verilmir</h2>
+      <p class="text-stone-300">Botaz müştəri ünsiyyətini yaxşılaşdırmaq üçün nəzərdə tutulsa da, hər bir vəziyyətdə artan satışlara, gəlirlərə, müştəri məmnuniyyətinə və ya biznes artımına zəmanət vermirik.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">18. Zəmanətlərdən İmtina</h2>
+      <p class="text-stone-300">Xidmət "OLDUĞu Kimi" və "MÖVCUD OLDUĞU QƏDƏR" təqdim olunur. Qanunun icazə verdiyi maksimum həddə Botaz açıq və ya nəzərdə tutulan bütün zəmanətləri rədd edir.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">19. Məsuliyyətin Məhdudlaşdırılması</h2>
+      <p class="text-stone-300">Qanunun icazə verdiyi maksimum həddə Botaz xidmətin istifadəsindən irəli gələn heç bir dolayı, təsadüfi və ya nəticə zərərlərinə görə məsuliyyət daşımır. Xidmətdən istifadəniz öz riskinizdədir.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">20. Zərərin Ödənilməsi (İndemnifikasiya)</h2>
+      <p class="text-stone-300">Xidmətdən istifadənizdən, bu Şərtləri pozmağınızdan və ya üçüncü tərəf hüquqlarını pozmağınızdan irəli gələn hər hansı iddialara qarşı Botaz-ı müdafiə etməyə və zərərsiz saxlamağa razılaşırsınız.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">21. Fövqəladə Hallar (Force Majeure)</h2>
+      <p class="text-stone-300">Təbii fəlakətlər, internet nasazlıqları, hökumət tədbirləri, kiberhücumlar və ya Meta, OpenAI, Supabase kimi xidmət təminatçılarına təsir edən səbəblərdən yaranan gecikmələrə görə Botaz məsuliyyət daşımır.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">22. Məxfilik</h2>
+      <p class="text-stone-300">Botaz-dan istifadəniz həm də Məxfilik Siyasətimizlə tənzimlənir. Xidmətdən istifadə etməklə Məxfilik Siyasətini oxuduğunuzu və başa düşdüyünüzü təsdiqləyirsiniz.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">23. Gələcək Funksiyalar və Dəyişikliklər</h2>
+      <p class="text-stone-300">Botaz gələcəkdə əlavə funksiyalar, inteqrasiyalar və ya beta imkanlar təqdim edə bilər. Xidmətin hər hansı hissəsini xəbərdarlıq etmədən dəyişmək və ya təkmilləşdirmək hüququnu saxlayırıq.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">24. Bu Şərtlərə Edilən Dəyişikliklər</h2>
+      <p class="text-stone-300">Bu Şərtləri vaxtaşırı yeniləyə bilərik. Yenilənmiş versiya dərc edildikdən dərhal sonra qüvvəyə minir.</p>
+
+      <h2 class="mt-8 text-xl font-bold text-white">25. Tətbiq Edilən Qanunvericilik və Əlaqə</h2>
+      <p class="text-stone-300">
+        Bu Şərtlər Azərbaycan Respublikasının qanunvericiliyinə uyğun olaraq tənzimlənəcəkdir. Suallarınız üçün bizimlə əlaqə saxlaya bilərsiniz:<br />
+        <strong>E-poçt:</strong>
+        <a href="mailto:aa.dev45@gmail.com" class="text-primary hover:underline">aa.dev45@gmail.com</a><br />
+        <strong>Botaz-ı seçdiyiniz üçün təşəkkür edirik.</strong>
+      </p>
+    </div>
   </div>
 </Layout>
+
+<!-- Dil dəyişdirmə funksionallığı üçün script -->
+<script>
+  function setupLanguageToggle() {
+    const buttons = document.querySelectorAll('.lang-btn');
+    const contents = document.querySelectorAll('.lang-content');
+
+    // Başlanğıc dili təyin et (məsələn: əgər yoxdursa 'en', varsa localStorage-dan oxu)
+    const savedLang = localStorage.getItem('botaz_tos_lang') || 'en';
+    switchLanguage(savedLang);
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        if (lang) {
+          switchLanguage(lang);
+          localStorage.setItem('botaz_tos_lang', lang);
+        }
+      });
+    });
+
+    function switchLanguage(lang: string) {
+      // Düymələrin aktiv/deaktiv görünüşü
+      buttons.forEach((b) => {
+        if (b.getAttribute('data-lang') === lang) {
+          b.classList.add('bg-white', 'text-stone-900', 'shadow');
+          b.classList.remove('text-stone-400');
+        } else {
+          b.classList.remove('bg-white', 'text-stone-900', 'shadow');
+          b.classList.add('text-stone-400');
+        }
+      });
+
+      // Məzmunların gizlədilməsi / göstərilməsi
+      contents.forEach((c) => {
+        if (c.getAttribute('data-lang') === lang) {
+          c.classList.remove('hidden');
+        } else {
+          c.classList.add('hidden');
+        }
+      });
+
+      // Başlığı da dilə uyğun yeniləyək
+      const headlineContainer = document.querySelector('#page-headline');
+      if (headlineContainer) {
+        headlineContainer.innerHTML = lang === 'az' ? '<h1 class="text-3xl font-bold text-white sm:text-4xl">İstifadə Şərtləri</h1>' : '<h1 class="text-3xl font-bold text-white sm:text-4xl">Terms of Service</h1>';
+      }
+    }
+  }
+
+  setupLanguageToggle();
+  document.addEventListener('astro:page-load', setupLanguageToggle);
+</script>

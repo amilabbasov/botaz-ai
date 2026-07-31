@@ -5,6 +5,7 @@ import HeroChip from "@components/promo/hero-chip.astro";
 
 import { themeConfig } from '~/theme.config';
 import { useTranslations, getLocaleUrl } from "@utils/i18n";
+import { SITE_CONFIG } from "../../site.config";
 import heroMockup from "@images/botaz-hero-mockup.webp";
 
 interface Props {
@@ -41,19 +42,28 @@ const stars3 = generateStars(22);  // 3 px - few bright
   <div class="relative z-10 flex w-full max-w-5xl flex-col items-center gap-6 text-center">
     {themeConfig.promotions?.heroChip && <HeroChip {locale} />}
 
-    <h1 class="hero-title flex flex-col items-center gap-2">
-      <span>Cavabsız Müştəri</span>
-      <span class="text-white font-bold text-[1em] my-[-0.2em]">=</span>
-      <span>İtirilmiş Gəlir</span>
+    <h1 class="hero-title flex flex-col items-center gap-1.5">
+      <span>Sən Yatarkən,</span>
+      <span class="whitespace-nowrap">Botaz Biznesini <span style="color: #FFF535;">Oyaq</span> Saxlayır.</span>
     </h1>
     <p class="hero-subline">{t('pages.home.hero-sub-slogan')}</p>
 
     <div class="flex flex-col gap-10">
-      <div class="mt-1 flex flex-wrap justify-center gap-4">
-        <a href={getLocaleUrl('docs', locale)} class="btn-primary">{t('labels.get-started')}</a>
-        <a href={getLocaleUrl('features', locale)} class="group inline-flex cursor-pointer items-center gap-2 rounded border-2 border-white/30 bg-white/5 px-4 py-2 pr-3 text-base font-semibold whitespace-nowrap text-white/80 no-underline transition-all select-none hover:border-white hover:text-white">
-          <span>{t('labels.explore-features')}</span>
-          <Icon name="heroicons:arrow-right" class="mr-1 ml-0 h-4 w-4 transition-all duration-200 group-hover:mr-0 group-hover:ml-1" />
+      <div class="mt-2 flex flex-wrap items-center justify-center gap-4">
+        {/* Əsas CTA Düyməsi */}
+        <a href={getLocaleUrl('pricing', locale)} class="group relative inline-flex items-center justify-center rounded-xl bg-[#00D9B1] px-8.5 py-4 text-[17px] font-semibold text-stone-950 no-underline shadow-[0_0_25px_rgba(0,217,177,0.3)] transition-all duration-300 select-none hover:-translate-y-0.5 hover:bg-[#00f5c8] hover:shadow-[0_0_35px_rgba(0,217,177,0.5)]">
+          <span>Qiymətlərə Bax</span>
+        </a>
+
+        {/* İkinci dərəcəli WhatsApp Düyməsi */}
+        <a
+          href={SITE_CONFIG.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-flex items-center gap-2.5 rounded-xl border border-white/20 bg-white/[0.04] px-7 py-4 text-[17px] font-medium text-white/95 no-underline backdrop-blur-md transition-all duration-300 select-none hover:-translate-y-0.5 hover:border-[#00D9B1]/60 hover:bg-white/[0.09] hover:text-white hover:shadow-[0_0_25px_rgba(0,217,177,0.15)]"
+        >
+          <span>Botazı İşə Götür</span>
+          <Icon name="heroicons:arrow-top-right-on-square" class="h-4.5 w-4.5 text-stone-300 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#00D9B1]" />
         </a>
       </div>
     </div>
@@ -135,17 +145,17 @@ const stars3 = generateStars(22);  // 3 px - few bright
     }
   }
 
-  /* Title - Neon Glow */
+  /* Title - Bold-luğu azaldıldı (font-semibold) və ölçüsü böyüdüldü */
   .hero-title {
-    @apply m-0 leading-[1.08] font-bold tracking-[-0.025em] text-white;
-    font-size: clamp(2.4rem, 6vw, 4.8rem);
-    text-shadow: 0 0 80px rgba(0, 217, 177, 0.35);
+    @apply m-0 leading-[1.08] font-semibold tracking-[-0.02em] text-white;
+    font-size: clamp(2.8rem, 6.8vw, 5.4rem);
+    text-shadow: 0 0 90px rgba(0, 217, 177, 0.3);
   }
 
-  /* Subline */
+  /* Subline - Ölçüsü bir qədər böyüdüldü və oxunurluq artırıldı */
   .hero-subline {
-    @apply m-0 max-w-[38rem] leading-[1.65] text-white/70;
-    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    @apply m-0 max-w-[42rem] leading-[1.65] text-white/80;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
   }
 
   /* ── Reduced motion ── */

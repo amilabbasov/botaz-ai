@@ -8,67 +8,205 @@ import { themeConfig } from '~/theme.config';
 const locale = themeConfig.i18n.defaultLocale;
 const t = useTranslations(locale);
 
-const content = {
-  imageAlt: "Botaz AI komandası və texnologiyası",
-  lead: "Botaz AI - Instagram və WhatsApp mağazalarının satışlarını 24/7 avtopilota keçirən, Azərbaycan dilində daxil olan səsli mesajları və şəkilləri tam anlayan ilk AI satış köməkçisidir.",
-  stats: [
-    { icon: "heroicons:sparkles", value: "Voice AI", label: "Səsli mesajları anlama" },
-    { icon: "heroicons:photo", value: "Vision AI", label: "Şəkilləri analiz etmə" },
-    { icon: "heroicons:clock", value: "24/7", label: "Kəsilməzsiz satış" },
-    { icon: "heroicons:chat-bubble-bottom-center-text", value: "Azərbaycan dili", label: "Canlı satış personası" },
-  ],
-  storyHeading: "Missiyamız",
-  timeline: [
-    {
-      year: "Problemin Mənbəyi",
-      title: "Gecikən cavablar = İtirilmiş satışlar",
-      text: "Azərbaycanda minlərlə Instagram mağazası gecə saatlarında və ya pik vaxtlarda daxil olan mesajlara vaxtında cavab verə bilmədiyi üçün potensial müştəriləri rəqiblərə itirirdi.",
-    },
-    {
-      year: "İnnovativ Həll",
-      title: "Voice & Vision AI Satış Köməkçisi",
-      text: "Sıradan mətni botlardan fərqli olaraq, müştərinin göndərdiyi səsli mesajları dinləyən, geyim/məhsul şəkillərini analiz edən və Google Sheets-dən qiymətləri oxuyan Botaz AI sistemini təqdim etdik.",
-    },
-    {
-      year: "Brend Personası",
-      title: "Canlı insan kimi ünsiyyət",
-      text: "Botaz AI sadəcə cavab vermir; biznesinizin üslubuna uyğunlaşır - İstər rəsmi, istərsə də səmimi dildə danışaraq müştərilərdə canlı satıcı təəssüratı yaradır.",
-    },
-    {
-      year: "Bu Gün",
-      title: "Avtomatik Satış və Lead Qəbulu",
-      text: "Razılaşmış müştərinin telefon və ünvanını toplayaraq anında Telegram və Email-inizə göndərir, operatorların üzərindəki yükü 80% azaldır.",
-    },
-  ],
-  highlightsHeading: "Niyə Botaz AI?",
-  highlights: [
-    {
-      icon: "heroicons:bolt",
-      title: "Anında Cavablandırma",
-      text: "Gecə saatlarında belə daxil olan sorğuları saniyələr ərzində cavablandırır.",
-    },
-    {
-      icon: "heroicons:adjustments-horizontal",
-      title: "Google Cədvəllər İnteqrasiyası",
-      text: "Məhsul bazanızı birbaşa cədvəldən oxuyur, qiymətləri avtomatik yeniləyir.",
-    },
-    {
-      icon: "heroicons:paper-airplane",
-      title: "Telegram & Email Xəbərdarlığı",
-      text: "Satış yekunlaşan kimi müştəri məlumatları birbaşa telefonunuza gəlir.",
-    },
-    {
-      icon: "heroicons:check-badge",
-      title: "5 Dəqiqəyə Quraşdırma",
-      text: "Mürəkkəb kodlaşdırma tələb olunmur, dərhal işə başlayır.",
-    },
-  ],
-  openSourceHeading: "Biznesinizi Birlikdə Böyüdək",
-  openSourceText: "Botaz AI sizə satışları artırmaq və müştəri məmnuniyyətini maksimuma çatdırmaq üçün ən qabaqcıl süni intellekt imkanlarını təqdim edir. WhatsApp vasitəsilə bizimlə əlaqə saxlayın və canlı demanı dərhal sınaqdan keçirin.",
+// Həm AZ, həm də EN məzmun strukturu
+const localizedContent = {
+  az: {
+    title: "Haqqımızda - Botaz AI",
+    description: "Botaz AI haqqında ətraflı məlumat, missiyamız və süni intellekt həllərimiz.",
+    headline: "Haqqımızda",
+    imageAlt: "Botaz AI komandası və texnologiyası",
+    lead: "Botaz AI - Instagram mağazalarının satışlarını 24/7 avtopilota keçirən, Azərbaycan dilində daxil olan səsli mesajları və şəkilləri tam anlayan ilk AI satış köməkçisidir.",
+    stats: [
+      { icon: "heroicons:sparkles", value: "Voice AI", label: "Səsli mesajları anlama" },
+      { icon: "heroicons:photo", value: "Vision AI", label: "Şəkilləri analiz etmə" },
+      { icon: "heroicons:clock", value: "24/7", label: "Kəsilməzsiz satış" },
+      { icon: "heroicons:chat-bubble-bottom-center-text", value: "Azərbaycan dili", label: "Canlı satış personası" },
+    ],
+    storyHeading: "Missiyamız",
+    timeline: [
+      {
+        year: "Problemin Mənbəyi",
+        title: "Gecikən cavablar = İtirilmiş satışlar",
+        text: "Azərbaycanda minlərlə Instagram mağazası gecə saatlarında və ya pik vaxtlarda daxil olan mesajlara vaxtında cavab verə bilmədiyi üçün potensial müştəriləri rəqiblərə itirirdi.",
+      },
+      {
+        year: "İnnovativ Həll",
+        title: "Voice & Vision AI Satış Köməkçisi",
+        text: "Sıradan mətni botlardan fərqli olaraq, müştərinin göndərdiyi səsli mesajları dinləyən, geyim/məhsul şəkillərini analiz edən və Google Sheets-dən qiymətləri oxuyan Botaz AI sistemini təqdim etdik.",
+      },
+      {
+        year: "Brend Personası",
+        title: "Canlı insan kimi ünsiyyət",
+        text: "Botaz AI sadəcə cavab vermir; biznesinizin üslubuna uyğunlaşır - İstər rəsmi, istərsə də səmimi dildə danışaraq müştərilərdə canlı satıcı təəssüratı yaradır.",
+      },
+      {
+        year: "Bu Gün",
+        title: "Avtomatik Satış və Lead Qəbulu",
+        text: "Razılaşmış müştərinin telefon və ünvanını toplayaraq anında Telegram və Email-inizə göndərir, operatorların üzərindəki yükü 80% azaldır.",
+      },
+    ],
+    highlightsHeading: "Niyə Botaz AI?",
+    highlights: [
+      {
+        icon: "heroicons:bolt",
+        title: "Anında Cavablandırma",
+        text: "Gecə saatlarında belə daxil olan sorğuları saniyələr ərzində cavablandırır.",
+      },
+      {
+        icon: "heroicons:adjustments-horizontal",
+        title: "Google Cədvəllər İnteqrasiyası",
+        text: "Məhsul bazanızı birbaşa cədvəldən oxuyur, qiymətləri avtomatik yeniləyir.",
+      },
+      {
+        icon: "heroicons:paper-airplane",
+        title: "Telegram & Email Xəbərdarlığı",
+        text: "Satış yekunlaşan kimi müştəri məlumatları birbaşa telefonunuza gəlir.",
+      },
+      {
+        icon: "heroicons:check-badge",
+        title: "5 Dəqiqəyə Quraşdırma",
+        text: "Mürəkkəb kodlaşdırma tələb olunmur, dərhal işə başlayır.",
+      },
+    ],
+    openSourceHeading: "Biznesinizi Birlikdə Böyüdək",
+    openSourceText: "Botaz AI sizə satışları artırmaq və müştəri məmnuniyyətini maksimuma çatdırmaq üçün ən qabaqcıl süni intellekt imkanlarını təqdim edir. WhatsApp vasitəsilə bizimlə əlaqə saxlayın və canlı demanı dərhal sınaqdan keçirin.",
+  },
+  en: {
+    title: "About Us - Botaz AI",
+    description: "Learn more about Botaz AI, our mission, and our artificial intelligence solutions.",
+    headline: "About Us",
+    imageAlt: "Botaz AI team and technology",
+    lead: "Botaz AI is the first AI sales assistant that puts Instagram store sales on 24/7 autopilot, fully understanding incoming voice messages and images in Azerbaijani.",
+    stats: [
+      { icon: "heroicons:sparkles", value: "Voice AI", label: "Voice message comprehension" },
+      { icon: "heroicons:photo", value: "Vision AI", label: "Image analysis" },
+      { icon: "heroicons:clock", value: "24/7", label: "Non-stop sales" },
+      { icon: "heroicons:chat-bubble-bottom-center-text", value: "Azerbaijani Language", label: "Live sales persona" },
+    ],
+    storyHeading: "Our Mission",
+    timeline: [
+      {
+        year: "The Problem",
+        title: "Delayed replies = Lost sales",
+        text: "Thousands of Instagram stores in Azerbaijan were losing potential customers to competitors simply because they couldn't reply on time during night hours or peak times.",
+      },
+      {
+        year: "Innovative Solution",
+        title: "Voice & Vision AI Sales Assistant",
+        text: "Unlike ordinary text bots, we introduced the Botaz AI system that listens to voice messages sent by customers, analyzes clothing/product images, and reads prices directly from Google Sheets.",
+      },
+      {
+        year: "Brand Persona",
+        title: "Communication like a real human",
+        text: "Botaz AI doesn't just reply; it adapts to your business style — whether formal or friendly, creating the impression of a live salesperson for customers.",
+      },
+      {
+        year: "Today",
+        title: "Automatic Sales & Lead Generation",
+        text: "It collects the phone number and address of the agreed customer, instantly sends them to your Telegram and Email, and reduces the workload on operators by 80%.",
+      },
+    ],
+    highlightsHeading: "Why Botaz AI?",
+    highlights: [
+      {
+        icon: "heroicons:bolt",
+        title: "Instant Replies",
+        text: "Answers incoming inquiries within seconds, even during nighttime.",
+      },
+      {
+        icon: "heroicons:adjustments-horizontal",
+        title: "Google Sheets Integration",
+        text: "Reads your product database directly from the sheet and updates prices automatically.",
+      },
+      {
+        icon: "heroicons:paper-airplane",
+        title: "Telegram & Email Alerts",
+        text: "Customer details land straight on your phone as soon as a sale is finalized.",
+      },
+      {
+        icon: "heroicons:check-badge",
+        title: "5-Minute Setup",
+        text: "No complex coding required, starts working immediately.",
+      },
+    ],
+    openSourceHeading: "Let's Grow Your Business Together",
+    openSourceText: "Botaz AI provides you with the most advanced artificial intelligence capabilities to boost sales and maximize customer satisfaction. Contact us via WhatsApp and test the live demo right away.",
+  }
 };
 ---
 
-<Layout title={t('pages.about.title')} description={t('pages.about.description')}>
-  <Headline text={t('pages.about.title')} class="pb-10" />
-  <AboutContent {...content} {locale} />
+<Layout title={localizedContent.en.title} description={localizedContent.en.description} >
+  <!-- Yuxarı hissə: Başlıq və Dil Seçici düyməsi -->
+  <div class="flex flex-col gap-4 pb-10 sm:flex-row sm:items-center sm:justify-between">
+    <div id="page-headline">
+      <Headline text="About Us" class="pb-0" />
+    </div>
+
+    <!-- Dil Dəyişdirmə Düyməsi -->
+    <div class="flex items-center self-start sm:self-auto">
+      <div class="inline-flex rounded-full border border-stone-800 bg-stone-900 p-1" role="group" aria-label="Dil seçimi">
+        <button type="button" class="lang-btn rounded-full px-4 py-1.5 text-xs font-semibold text-stone-400 transition-colors" data-lang="az"> AZ </button>
+        <button type="button" class="lang-btn rounded-full px-4 py-1.5 text-xs font-semibold text-stone-400 transition-colors" data-lang="en"> EN </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- English Container (Default) -->
+  <div class="lang-content" data-lang="en">
+    <AboutContent {...localizedContent.en} {locale} />
+  </div>
+
+  <!-- Azerbaijani Container -->
+  <div class="lang-content hidden" data-lang="az">
+    <AboutContent {...localizedContent.az} {locale} />
+  </div>
 </Layout>
+
+<!-- Dil dəyişdirmə funksionallığı üçün script -->
+<script>
+  function setupAboutLanguageToggle() {
+    const buttons = document.querySelectorAll('.lang-btn');
+    const contents = document.querySelectorAll('.lang-content');
+
+    const savedLang = localStorage.getItem('botaz_about_lang') || 'en';
+    switchLanguage(savedLang);
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        if (lang) {
+          switchLanguage(lang);
+          localStorage.setItem('botaz_about_lang', lang);
+        }
+      });
+    });
+
+    function switchLanguage(lang: string) {
+      buttons.forEach((b) => {
+        if (b.getAttribute('data-lang') === lang) {
+          b.classList.add('bg-white', 'text-stone-900', 'shadow');
+          b.classList.remove('text-stone-400');
+        } else {
+          b.classList.remove('bg-white', 'text-stone-900', 'shadow');
+          b.classList.add('text-stone-400');
+        }
+      });
+
+      contents.forEach((c) => {
+        if (c.getAttribute('data-lang') === lang) {
+          c.classList.remove('hidden');
+        } else {
+          c.classList.add('hidden');
+        }
+      });
+
+      const headlineContainer = document.querySelector('#page-headline');
+      if (headlineContainer) {
+        headlineContainer.innerHTML = lang === 'az' ? '<h1 class="text-3xl font-bold text-white sm:text-4xl">Haqqımızda</h1>' : '<h1 class="text-3xl font-bold text-white sm:text-4xl">About Us</h1>';
+      }
+    }
+  }
+
+  setupAboutLanguageToggle();
+  document.addEventListener('astro:page-load', setupAboutLanguageToggle);
+</script>
