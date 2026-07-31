@@ -44,26 +44,27 @@ const stars3 = generateStars(22);  // 3 px - few bright
 
     <h1 class="hero-title flex flex-col items-center gap-1.5">
       <span>Sən Yatarkən,</span>
-      <span class="whitespace-nowrap">Botaz Biznesini <span style="color: #FFF535;">Oyaq</span> Saxlayır.</span>
+      <span>Botaz</span>
+      <span>Biznesini <span style="color: #FFF535;">Oyaq</span> Saxlayır.</span>
     </h1>
     <p class="hero-subline">{t('pages.home.hero-sub-slogan')}</p>
 
     <div class="flex flex-col gap-10">
       <div class="mt-2 flex flex-wrap items-center justify-center gap-4">
-        {/* Əsas CTA Düyməsi */}
-        <a href={getLocaleUrl('pricing', locale)} class="group relative inline-flex items-center justify-center rounded-xl bg-[#00D9B1] px-8.5 py-4 text-[17px] font-semibold text-stone-950 no-underline shadow-[0_0_25px_rgba(0,217,177,0.3)] transition-all duration-300 select-none hover:-translate-y-0.5 hover:bg-[#00f5c8] hover:shadow-[0_0_35px_rgba(0,217,177,0.5)]">
+        <a
+          href={getLocaleUrl('pricing', locale)}
+          class="group relative inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/[0.04] px-7 py-4 text-[17px] font-medium text-white/95 no-underline backdrop-blur-md transition-all duration-300 select-none hover:-translate-y-0.5 hover:border-[#00D9B1]/60 hover:bg-white/[0.09] hover:text-white hover:shadow-[0_0_25px_rgba(0,217,177,0.15)]"
+        >
           <span>Qiymətlərə Bax</span>
         </a>
-
-        {/* İkinci dərəcəli WhatsApp Düyməsi */}
         <a
           href={SITE_CONFIG.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="group inline-flex items-center gap-2.5 rounded-xl border border-white/20 bg-white/[0.04] px-7 py-4 text-[17px] font-medium text-white/95 no-underline backdrop-blur-md transition-all duration-300 select-none hover:-translate-y-0.5 hover:border-[#00D9B1]/60 hover:bg-white/[0.09] hover:text-white hover:shadow-[0_0_25px_rgba(0,217,177,0.15)]"
+          class="group hero-cta-pulse relative inline-flex items-center gap-2.5 rounded-xl bg-[#00D9B1] px-8.5 py-4 text-[17px] font-semibold text-stone-950 no-underline shadow-[0_0_25px_rgba(0,217,177,0.4)] transition-all duration-300 select-none hover:-translate-y-0.5 hover:bg-[#00f5c8] hover:shadow-[0_0_35px_rgba(0,217,177,0.6)]"
         >
-          <span>Botazı İşə Götür</span>
-          <Icon name="heroicons:arrow-top-right-on-square" class="h-4.5 w-4.5 text-stone-300 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#00D9B1]" />
+          <span class="cta-text-anim">Botazı İşə Götür</span>
+          <Icon name="heroicons:arrow-top-right-on-square" class="h-4.5 w-4.5 text-stone-950 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
       </div>
     </div>
@@ -81,6 +82,7 @@ const stars3 = generateStars(22);  // 3 px - few bright
   /* ── Wrapper - Dark Background ── */
   .hero {
     background: radial-gradient(ellipse at 50% 40%, #06241e 0%, #081512 55%, #090a0f 100%);
+    @apply px-4 sm:px-6;
   }
 
   /* ── Rotating galaxy container ── */
@@ -145,17 +147,51 @@ const stars3 = generateStars(22);  // 3 px - few bright
     }
   }
 
-  /* Title - Bold-luğu azaldıldı (font-semibold) və ölçüsü böyüdüldü */
+  /* ── CTA Button Pulse & Text Animation ── */
+  .hero-cta-pulse {
+    animation: ctaPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes ctaPulse {
+    0%,
+    100% {
+      box-shadow: 0 0 25px rgba(0, 217, 177, 0.4);
+    }
+    50% {
+      box-shadow:
+        0 0 40px rgba(0, 217, 177, 0.7),
+        0 0 15px rgba(0, 217, 177, 0.3);
+    }
+  }
+
+  /* Mətnin rəng və parlaqlıq animasiyası */
+  .cta-text-anim {
+    animation: textGlowAnim 3s ease-in-out infinite;
+  }
+
+  @keyframes textGlowAnim {
+    0%,
+    100% {
+      color: #03201a;
+      text-shadow: none;
+    }
+    50% {
+      color: #000000;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  /* Title - Mobil ekranlar üçün adaptiv ölçü */
   .hero-title {
-    @apply m-0 leading-[1.08] font-semibold tracking-[-0.02em] text-white;
-    font-size: clamp(2.8rem, 6.8vw, 5.4rem);
+    @apply m-0 w-full text-center leading-[1.12] font-semibold tracking-[-0.02em] text-white;
+    font-size: clamp(2.3rem, 7vw, 3.8rem);
     text-shadow: 0 0 90px rgba(0, 217, 177, 0.3);
   }
 
-  /* Subline - Ölçüsü bir qədər böyüdüldü və oxunurluq artırıldı */
+  /* Subline */
   .hero-subline {
-    @apply m-0 max-w-[42rem] leading-[1.65] text-white/80;
-    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    @apply m-0 max-w-[42rem] px-2 leading-[1.65] text-white/80;
+    font-size: clamp(0.95rem, 2.2vw, 1.15rem);
   }
 
   /* ── Reduced motion ── */
@@ -164,7 +200,9 @@ const stars3 = generateStars(22);  // 3 px - few bright
     .nebula,
     .s1::before,
     .s2::before,
-    .s3::before {
+    .s3::before,
+    .hero-cta-pulse,
+    .cta-text-anim {
       animation: none;
     }
   }

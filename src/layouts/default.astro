@@ -100,7 +100,7 @@ const showTopBanner = (themeConfig.promotions?.topBanner && header?.showTopBanne
   <body>
     {showTopBanner ? <TopBanner {locale} /> : null}
     <div class="relative w-full">
-      {header?.hidden !== true && <Header {locale} button={header?.button ?? undefined} ctaButton={{ text: 'BOTAZ-I İŞƏ GÖTÜR', href: getLocaleUrl('contact', locale) }} {isHome} fixed={header?.fixed} overlay={header?.overlay} overlayTheme="dark" scrollDownThreshold={header?.scrollDownThreshold} closeIcon={header?.closeIcon} hasTopBanner={showTopBanner} />}
+      {header?.hidden !== true && <Header {locale} button={header?.button ?? undefined} {isHome} fixed={header?.fixed} overlay={header?.overlay} overlayTheme="dark" scrollDownThreshold={header?.scrollDownThreshold} closeIcon={header?.closeIcon} hasTopBanner={showTopBanner} />}
       <main role="main" class="relative z-40">
         {isHome && <Hero {locale} />}
         {
